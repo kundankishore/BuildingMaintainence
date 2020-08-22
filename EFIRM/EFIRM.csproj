@@ -1,0 +1,1989 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AB9163C9-D9C0-4D1D-95CE-F978CA03DD4E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EFIRM</RootNamespace>
+    <AssemblyName>EFIRM</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.9.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.9.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.9.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.9.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.9.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.9.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.9.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.9.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.9.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.9.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.9.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.9.1\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.5\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.0\lib\net451\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\ServiceReportsController.cs" />
+    <Compile Include="Controllers\ServiceRequestsController.cs" />
+    <Compile Include="DAL\Admin_Features_Activation.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\AlarmPointFetchDateTime.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\AnalogValueStatu.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\AssetsView.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\BuildingImage.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DigitalValueStatu.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\EFIRMModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EFIRMModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\EFIRMModel.Designer.cs">
+      <DependentUpon>EFIRMModel.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DAL\EFIRMModel1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\From_Unit.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\LocationMaster.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\LogoImage.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\NodeType.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Point.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\PointValue_Digital.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\PPMWorkOrderService.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\PPMWorkOrderServiceSoft.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\RunhoursAnalogPointFetchDateTime.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\RunhoursDigitalPointFetchDateTime.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Sel_Point.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAccountBalance.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAccountHead.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAccountSubHead.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblActualValueDigital.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblActualValueFloat.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAddWorkForceSkill.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAlarmGenerationLastCheckTimeStamp.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAlarmType.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAnalogAlarm.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblApproverManagersList.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblArea.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAreaUnit.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAsset.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAssetComponent.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAssetComponentType.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAssetGroup.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAssetListReportTemplate.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAssetsFrequency.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAssetsRunHour.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\TblAssetToMaintenanceTeamMapping.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAssetType.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAssetTypeFrequency.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAssetTypeNQualificationLevel.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAttachedResourcesRoomWise.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblAuditReport.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblBimonthlyLogger.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblBookingRate.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblBuilding.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblBuildingHoliday.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblBuildingWorkingSchedule.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblCategory.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblCategory_HelpDesk.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblCommentsSRP.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblComponentTypeAsset.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblCountryDetail.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblCourse.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblCurrencyMaster.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblCustomerFeedback.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblCustomerFeedbackUserRoleMapping.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblDailyLogger.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblDatabaseConnectionString.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\TblDefectTracking.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblDefineSoftservice.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblDesignation.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblDocument.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblDocumentType.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblEmailConfiguration.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblExtraAddedResourcesForBooking.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblFacility.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblFacilityHoliday.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblFacilityWorkingSchedule.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblFBAnnouncementMngt.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblFBAttachResourcesRoomWise.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblFBBookingSlot.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblFBBusinessRule.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblFBInvoiceDetail.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblFBInvoiceIdRoomBookingId.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblFBRoomDetail.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblFBRoomDetailsWiseRate.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblFiscalYear.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblFloor.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblFloorHoliday.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblFloorWorkingSchedule.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblForm.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblFrequencyType.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblGLCode.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblHelpDeskBusinessRule.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblHelpDeskChangeRTAsset.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblHelpDeskChangeRTDetail.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblHelpDeskChangeRTResource.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblHelpDeskRedirectAsset.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblHelpDeskRedirectFlow.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblHelpDeskRedirectResource.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblHelpDeskTemplate.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblHourlyLogger.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblIfcTagMaster.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblInventoryComponent.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblInventoryIssueReturn.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblInventoryPart.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblIssueReturnItemsList.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblIssueReturnItemsListComponent.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblKey.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblKeyPanel.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblKeyReturnedStatu.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblKeysInPanel.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblKeysIssueReturn.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblKPI.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblKPI_AssetDetails.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblLanguage.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblLicence.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblLoggerHistory.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\TblMachineStateReport.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblMainModule.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblMaintenanceActivite.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblMaintenanceActivityAsset.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblMaintenanceTask.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblMaintenanceTaskActivity.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblMaintenanceTeam.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblMaintenanceType.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblMakeMaster.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblModelMaster.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblModule.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblMonthlyLogger.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblMRCourierServiceProvider.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblMRMailroomInbound.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblMRMailroomOutbound.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblMRModeOfDelivery.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblNode.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblNodeDoumentView.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblNotificationQueue.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblNotification_HelpDesk.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblOccupant.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblPart.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblPartsAsset.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblPartsType.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblPayment.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblPlanBadget.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblPlusActual.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblPMAsset.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblPMSoftService.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblPointSlouse.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblPortfolio.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblPPMSchedule.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblPPMschedulesoftservice.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblPPMTask.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblPredictiveType.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblPrefixesMaster.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblProgram.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblPurchaseOrderList.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblPurchaseRequisition.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblQuickLink.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblRealTimeBooking.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblReortInventoryTemplate.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblReportDataLogger.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblReportPPMSchedule.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblReportShiftSchedule.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblReportSoftServicesPPM.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblReportWorkForceAttacnance.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblReportWorkForceList.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblRequestDescription.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblRequestTypeApprover.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblResetTotalizationRunHour.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblResourceMakeModel.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblRoom.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblRoomBookingHistory.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblRoomBookingMaster.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblRoomRecurringBooking.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblRoomType.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblRunHour.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblServiceReport.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblServiceReportComponentsUsed.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblServiceReportFilePath.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblServiceReportPart.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblServiceReportWorkForceTime.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblServiceRequest.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblServiceRequestImage.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblServiceRequestMappedAsset.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblServiceRequestResource.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblServiceRequestStatu.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\TblServiceState.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblServiceStateUserRoleMapping.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblServiceStatusMaster.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblServiceType.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblSeverity.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblShift.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblShiftException.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblShiftRostering.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblSkill.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblSLA.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblSLACategoryType.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblSLAEscalation.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblSmsStatu.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblSoftservicetoMaitenanceteamMapping.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblStatutoryCompliance.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblStatutoryComplianceEmailStatu.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblStockDetail.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblStore.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblTaskAssetmaintenance.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblTaskSoftservice.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblTimeSheet.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblUnit.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblUnitOfMeasure.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblUnitOfMeasureCopySetup.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblUnitOfPartType.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblUserLoginInfo.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblUserRole.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblUserRolesRights_Access.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVendor.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVendorComparison.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVendorComparisonMain.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVendorMasterGeneral.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVendorQualificationLevelName.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVMRequestForPurchase.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVMSupplierPart.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_GateReceiptNumber.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_GRN_ComponentQuantity.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_GRN_PartQuantity.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_POContract.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_PurchaseRequisitionForm.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_RFPforComponents.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_RFPforManpower.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_RFPforManpower_Main.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_RFPforManpower_VendorSelection.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_RFPforParts.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_RFPforPartsComponentMain.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_RFPforProjectWork.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_RFPforProjectWork_VendorSelection.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_RFPforServiceAssets.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_RFP_ForService.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_TaxMaster.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_VComp_VendorSelection.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_VendorComparison.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_VendorSelectionFoRFP.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblVM_VendorSelectionForRFP_PartsComponent.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblWeatherData.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblWeeklyLogger.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblWorkForce.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblWorkForceToMaintenanceTeamMapping.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblWorkOrder.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblWorkOrderMaintenanceTask.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblWorkOrderResource.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tblXmlForBookedRoom.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tbl_AlarmSummary.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tbl_Devices.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tbl_EscalationMatrixNotificationStatus.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tbl_ExceptionLogItems.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tbl_LogParameter.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tbl_newUpdatealarm.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tbl_ObjectList.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tbl_ObjectType.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tbl_PointValue_Digital.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tbl_RoomBookingMailStatus.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tbl_RunHrsOnOffTime.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tbl_TaskDetailforAssetMaintenance.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tbl_TaskDetails.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tbl_TotalizationHistory.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tbl_TotalizationLastFetchStatus.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tbl_TotalizationStatus.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\tbl_UnitOfMeasure.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\testTable.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Unit_type.cs">
+      <DependentUpon>EFIRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pager.cs" />
+    <Compile Include="Models\ServiceReportsViewModels.cs" />
+    <Compile Include="Models\FeaturesViewModels.cs" />
+    <Compile Include="Models\UserProfileViewModels.cs" />
+    <Compile Include="Models\ServiceRequestsViewModels.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\bootstrap\bootstrap.min.css" />
+    <Content Include="assets\css\bootstrap\mdb.min.css" />
+    <Content Include="assets\css\font\roboto\Roboto-Bold-2.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Bold-3.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Bold-4.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Bold.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Boldd41d.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Light-2.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Light-3.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Light-4.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Light.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Lightd41d.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Medium-2.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Medium-3.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Medium-4.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Medium.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Mediumd41d.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Regular-2.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Regular-3.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Regular-4.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Regular.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Regulard41d.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Thin-2.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Thin-3.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Thin-4.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Thin.html" />
+    <Content Include="assets\css\font\roboto\Roboto-Thind41d.html" />
+    <Content Include="assets\css\hamburgers\hamburgers.css" />
+    <Content Include="assets\css\img\svg\arrow_left.html" />
+    <Content Include="assets\css\quillpro\quillpro-print.css" />
+    <Content Include="assets\css\quillpro\quillpro.css" />
+    <Content Include="assets\demo\css\ui-icons-batch-icons.css" />
+    <Content Include="assets\demo\js\forms-extra.js" />
+    <Content Include="assets\demo\js\forms-validation.js" />
+    <Content Include="assets\demo\js\ui-filterizr.js" />
+    <Content Include="assets\demo\js\ui-notifications.js" />
+    <Content Include="assets\fonts\batch-icons\batch-icons-webfont.svg" />
+    <Content Include="assets\fonts\batch-icons\css\batch-icons.css" />
+    <Content Include="assets\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="assets\img\album-image.jpg" />
+    <Content Include="assets\img\bg-image-1-horizontal.jpg" />
+    <Content Include="assets\img\bg-image-1.jpg" />
+    <Content Include="assets\img\bg-image-2.jpg" />
+    <Content Include="assets\img\bg-image-3.jpg" />
+    <Content Include="assets\img\bg-image-4.jpg" />
+    <Content Include="assets\img\ecommerce\payment-logo.jpg" />
+    <Content Include="assets\img\ecommerce\product-1-image-1.jpg" />
+    <Content Include="assets\img\ecommerce\product-1-image-2.jpg" />
+    <Content Include="assets\img\ecommerce\product-1-image-3.jpg" />
+    <Content Include="assets\img\ecommerce\product-3-image-1.jpg" />
+    <Content Include="assets\img\ecommerce\product-4-image-1.jpg" />
+    <Content Include="assets\img\ecommerce\product-image-1.jpg" />
+    <Content Include="assets\img\ecommerce\product-image-5.jpg" />
+    <Content Include="assets\img\ecommerce\product-image-red-shoes-thumb.jpg" />
+    <Content Include="assets\img\ecommerce\product-image-yellow-top-thumb.jpg" />
+    <Content Include="assets\img\email-attachment.jpg" />
+    <Content Include="assets\img\favicon.png" />
+    <Content Include="assets\img\filtr-image-1.jpg" />
+    <Content Include="assets\img\filtr-image-2.jpg" />
+    <Content Include="assets\img\filtr-image-3.jpg" />
+    <Content Include="assets\img\filtr-image-4.jpg" />
+    <Content Include="assets\img\filtr-image-5.jpg" />
+    <Content Include="assets\img\filtr-image-6.jpg" />
+    <Content Include="assets\img\filtr-image-7.jpg" />
+    <Content Include="assets\img\filtr-image-9.jpg" />
+    <Content Include="assets\img\gallery-image-1.jpg" />
+    <Content Include="assets\img\gallery-image-2.jpg" />
+    <Content Include="assets\img\gallery-image-3.jpg" />
+    <Content Include="assets\img\gallery-image-4.jpg" />
+    <Content Include="assets\img\gallery-image-5.jpg" />
+    <Content Include="assets\img\gallery-image-6.jpg" />
+    <Content Include="assets\img\gallery-image-7.jpg" />
+    <Content Include="assets\img\gallery-image-8.jpg" />
+    <Content Include="assets\img\gallery-image-9.jpg" />
+    <Content Include="assets\img\logo-dark.png" />
+    <Content Include="assets\img\logo-white.png" />
+    <Content Include="assets\img\media-search-1.jpg" />
+    <Content Include="assets\img\media-search-10.jpg" />
+    <Content Include="assets\img\media-search-11.jpg" />
+    <Content Include="assets\img\media-search-2.jpg" />
+    <Content Include="assets\img\media-search-3.jpg" />
+    <Content Include="assets\img\media-search-4.jpg" />
+    <Content Include="assets\img\media-search-5.jpg" />
+    <Content Include="assets\img\media-search-6.jpg" />
+    <Content Include="assets\img\media-search-7.jpg" />
+    <Content Include="assets\img\media-search-8.jpg" />
+    <Content Include="assets\img\media-search-9.jpg" />
+    <Content Include="assets\img\paper-plane.png" />
+    <Content Include="assets\img\plane.png" />
+    <Content Include="assets\img\profile-pic-1.jpg" />
+    <Content Include="assets\img\profile-pic-2.jpg" />
+    <Content Include="assets\img\profile-pic-3.jpg" />
+    <Content Include="assets\img\profile-pic-4.jpg" />
+    <Content Include="assets\img\profile-pic-5.jpg" />
+    <Content Include="assets\img\profile-pic-6.jpg" />
+    <Content Include="assets\img\profile-pic.jpg" />
+    <Content Include="assets\img\slider-1.jpg" />
+    <Content Include="assets\img\slider-2.jpg" />
+    <Content Include="assets\img\slider-3.jpg" />
+    <Content Include="assets\img\space-ship.png" />
+    <Content Include="assets\img\user.png" />
+    <Content Include="assets\js\bootstrap\bootstrap.min.js" />
+    <Content Include="assets\js\bootstrap\mdb.min.js" />
+    <Content Include="assets\js\bootstrap\popper.min.js" />
+    <Content Include="assets\js\jquery\jquery-3.1.1.min.js" />
+    <Content Include="assets\js\jquery\jquery-ui-1.11.0.custom\images\animated-overlay.gif" />
+    <Content Include="assets\js\jquery\jquery-ui-1.11.0.custom\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="assets\js\jquery\jquery-ui-1.11.0.custom\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="assets\js\jquery\jquery-ui-1.11.0.custom\images\ui-bg_flat_55_ffffff_40x100.png" />
+    <Content Include="assets\js\jquery\jquery-ui-1.11.0.custom\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="assets\js\jquery\jquery-ui-1.11.0.custom\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="assets\js\jquery\jquery-ui-1.11.0.custom\images\ui-bg_highlight-soft_100_f6f6f6_1x100.png" />
+    <Content Include="assets\js\jquery\jquery-ui-1.11.0.custom\images\ui-bg_highlight-soft_25_0073ea_1x100.png" />
+    <Content Include="assets\js\jquery\jquery-ui-1.11.0.custom\images\ui-bg_highlight-soft_50_dddddd_1x100.png" />
+    <Content Include="assets\js\jquery\jquery-ui-1.11.0.custom\images\ui-icons_0073ea_256x240.png" />
+    <Content Include="assets\js\jquery\jquery-ui-1.11.0.custom\images\ui-icons_454545_256x240.png" />
+    <Content Include="assets\js\jquery\jquery-ui-1.11.0.custom\images\ui-icons_666666_256x240.png" />
+    <Content Include="assets\js\jquery\jquery-ui-1.11.0.custom\images\ui-icons_ff0084_256x240.png" />
+    <Content Include="assets\js\jquery\jquery-ui-1.11.0.custom\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="assets\js\jquery\jquery-ui-1.11.0.custom\jquery-ui.min.css" />
+    <Content Include="assets\js\jquery\jquery-ui-1.11.0.custom\jquery-ui.min.js" />
+    <Content Include="assets\js\jquery\jquery-ui-1.11.0.custom\jquery-ui.structure.min.css" />
+    <Content Include="assets\js\jquery\jquery-ui-1.11.0.custom\jquery-ui.theme.min.css" />
+    <Content Include="assets\js\misc\holder.min.js" />
+    <Content Include="assets\js\misc\ie10-viewport-bug-workaround.js" />
+    <Content Include="assets\js\misc\jquery.easing.1.3.js" />
+    <Content Include="assets\js\misc\moment.min.js" />
+    <Content Include="assets\js\scripts.js" />
+    <Content Include="assets\plugins\animate.css\animate.css" />
+    <Content Include="assets\plugins\baguettebox\baguetteBox.min.css" />
+    <Content Include="assets\plugins\baguettebox\baguetteBox.min.js" />
+    <Content Include="assets\plugins\bootstrap-wizard\jquery.bootstrap.wizard.min.js" />
+    <Content Include="assets\plugins\chartjs\chart.bundle.min.js" />
+    <Content Include="assets\plugins\ckeditor\adapters\jquery.js" />
+    <Content Include="assets\plugins\ckeditor\ckeditor.js" />
+    <Content Include="assets\plugins\custom-scrollbar\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="assets\plugins\custom-scrollbar\jquery.mCustomScrollbar.min.css" />
+    <Content Include="assets\plugins\custom-scrollbar\mCSB_buttons.html" />
+    <Content Include="assets\plugins\datatables\css\responsive.bootstrap4.min.css" />
+    <Content Include="assets\plugins\datatables\css\responsive.dataTables.min.css" />
+    <Content Include="assets\plugins\datatables\js\dataTables.bootstrap4.min.js" />
+    <Content Include="assets\plugins\datatables\js\dataTables.responsive.min.js" />
+    <Content Include="assets\plugins\datatables\js\jquery.dataTables.min.js" />
+    <Content Include="assets\plugins\easypiechart\jquery.easypiechart.min.js" />
+    <Content Include="assets\plugins\filterizr\filterizr.css" />
+    <Content Include="assets\plugins\filterizr\jquery.filterizr.min.js" />
+    <Content Include="assets\plugins\form-validator\jquery.form-validator.min.js" />
+    <Content Include="assets\plugins\fullcalendar\fullcalendar.min.css" />
+    <Content Include="assets\plugins\fullcalendar\fullcalendar.min.js" />
+    <Content Include="assets\plugins\jquery-mask\jquery.mask.min.js" />
+    <Content Include="assets\plugins\jquery_visible\jquery.visible.min.js" />
+    <Content Include="assets\plugins\jvmaps\jquery.vmap.min.js" />
+    <Content Include="assets\plugins\jvmaps\jqvmap.min.css" />
+    <Content Include="assets\plugins\jvmaps\maps\jquery.vmap.usa.js" />
+    <Content Include="assets\plugins\prettify\css\prettify-bootstrap.min.css" />
+    <Content Include="assets\plugins\prettify\css\prettify.css" />
+    <Content Include="assets\plugins\prettify\js\prettify.js" />
+    <Content Include="assets\plugins\tagsinput\bootstrap-tagsinput.min.css" />
+    <Content Include="assets\plugins\tagsinput\bootstrap-tagsinput.min.js" />
+    <Content Include="assets\plugins\timelify\css\animate.css" />
+    <Content Include="assets\plugins\timelify\css\timelify.css" />
+    <Content Include="assets\plugins\timelify\js\jquery.timelify.min.js" />
+    <Content Include="assets\plugins\toastr\toastr.min.css" />
+    <Content Include="assets\plugins\toastr\toastr.min.js" />
+    <Content Include="assets\plugins\typeahead\typeahead.bundle.min.js" />
+    <Content Include="assets\plugins\velocity\velocity.min.js" />
+    <Content Include="assets\plugins\velocity\velocity.ui.min.js" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="DAL\EFIRMModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EFIRMModel.edmx</DependentUpon>
+      <LastGenOutput>EFIRMModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DAL\EFIRMModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EFIRMModel.edmx</DependentUpon>
+      <LastGenOutput>EFIRMModel1.cs</LastGenOutput>
+    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="assets\fonts\batch-icons\batch-icons-webfont.eot" />
+    <Content Include="assets\fonts\batch-icons\batch-icons-webfont.ttf" />
+    <Content Include="assets\fonts\batch-icons\batch-icons-webfont.woff" />
+    <Content Include="assets\fonts\batch-icons\batch-icons-webfontd41d.eot" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <EntityDeploy Include="DAL\EFIRMModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EFIRMModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DAL\EFIRMModel.edmx.diagram">
+      <DependentUpon>EFIRMModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="HighCharts\css\annotations\popup.scss" />
+    <Content Include="HighCharts\css\highcharts.scss" />
+    <Content Include="HighCharts\css\stocktools\gui.scss" />
+    <Content Include="HighCharts\css\themes\dark-unica.scss" />
+    <Content Include="HighCharts\css\themes\grid-light.scss" />
+    <Content Include="HighCharts\css\themes\sand-signika.scss" />
+    <Content Include="HighCharts\highcharts-3d.js.map" />
+    <Content Include="HighCharts\highcharts-more.js.map" />
+    <Content Include="HighCharts\highcharts.js.map" />
+    <Content Include="HighCharts\modules\accessibility.js.map" />
+    <Content Include="HighCharts\modules\annotations-advanced.js.map" />
+    <Content Include="HighCharts\modules\annotations.js.map" />
+    <Content Include="HighCharts\modules\arrow-symbols.js.map" />
+    <Content Include="HighCharts\modules\boost-canvas.js.map" />
+    <Content Include="HighCharts\modules\boost.js.map" />
+    <Content Include="HighCharts\modules\broken-axis.js.map" />
+    <Content Include="HighCharts\modules\bullet.js.map" />
+    <Content Include="HighCharts\modules\current-date-indicator.js.map" />
+    <Content Include="HighCharts\modules\cylinder.js.map" />
+    <Content Include="HighCharts\modules\data.js.map" />
+    <Content Include="HighCharts\modules\datagrouping.js.map" />
+    <Content Include="HighCharts\modules\debugger.js.map" />
+    <Content Include="HighCharts\modules\dependency-wheel.js.map" />
+    <Content Include="HighCharts\modules\drag-panes.js.map" />
+    <Content Include="HighCharts\modules\draggable-points.js.map" />
+    <Content Include="HighCharts\modules\drilldown.js.map" />
+    <Content Include="HighCharts\modules\export-data.js.map" />
+    <Content Include="HighCharts\modules\exporting.js.map" />
+    <Content Include="HighCharts\modules\full-screen.js.map" />
+    <Content Include="HighCharts\modules\funnel.js.map" />
+    <Content Include="HighCharts\modules\gantt.js.map" />
+    <Content Include="HighCharts\modules\grid-axis.js.map" />
+    <Content Include="HighCharts\modules\heatmap.js.map" />
+    <Content Include="HighCharts\modules\histogram-bellcurve.js.map" />
+    <Content Include="HighCharts\modules\item-series.js.map" />
+    <Content Include="HighCharts\modules\networkgraph.js.map" />
+    <Content Include="HighCharts\modules\no-data-to-display.js.map" />
+    <Content Include="HighCharts\modules\offline-exporting.js.map" />
+    <Content Include="HighCharts\modules\oldie-polyfills.js.map" />
+    <Content Include="HighCharts\modules\oldie.js.map" />
+    <Content Include="HighCharts\modules\overlapping-datalabels.js.map" />
+    <Content Include="HighCharts\modules\parallel-coordinates.js.map" />
+    <Content Include="HighCharts\modules\pareto.js.map" />
+    <Content Include="HighCharts\modules\pathfinder.js.map" />
+    <Content Include="HighCharts\modules\pattern-fill.js.map" />
+    <Content Include="HighCharts\modules\price-indicator.js.map" />
+    <Content Include="HighCharts\modules\sankey.js.map" />
+    <Content Include="HighCharts\modules\series-label.js.map" />
+    <Content Include="HighCharts\modules\solid-gauge.js.map" />
+    <Content Include="HighCharts\modules\sonification.js.map" />
+    <Content Include="HighCharts\modules\static-scale.js.map" />
+    <Content Include="HighCharts\modules\stock-tools.js.map" />
+    <Content Include="HighCharts\modules\stock.js.map" />
+    <Content Include="HighCharts\modules\streamgraph.js.map" />
+    <Content Include="HighCharts\modules\sunburst.js.map" />
+    <Content Include="HighCharts\modules\tilemap.js.map" />
+    <Content Include="HighCharts\modules\timeline.js.map" />
+    <Content Include="HighCharts\modules\treegrid.js.map" />
+    <Content Include="HighCharts\modules\treemap.js.map" />
+    <Content Include="HighCharts\modules\variable-pie.js.map" />
+    <Content Include="HighCharts\modules\variwide.js.map" />
+    <Content Include="HighCharts\modules\vector.js.map" />
+    <Content Include="HighCharts\modules\venn.js.map" />
+    <Content Include="HighCharts\modules\windbarb.js.map" />
+    <Content Include="HighCharts\modules\wordcloud.js.map" />
+    <Content Include="HighCharts\modules\xrange.js.map" />
+    <Content Include="HighCharts\themes\avocado.js.map" />
+    <Content Include="HighCharts\themes\dark-blue.js.map" />
+    <Content Include="HighCharts\themes\dark-green.js.map" />
+    <Content Include="HighCharts\themes\dark-unica.js.map" />
+    <Content Include="HighCharts\themes\gray.js.map" />
+    <Content Include="HighCharts\themes\grid-light.js.map" />
+    <Content Include="HighCharts\themes\grid.js.map" />
+    <Content Include="HighCharts\themes\sand-signika.js.map" />
+    <Content Include="HighCharts\themes\skies.js.map" />
+    <Content Include="HighCharts\themes\sunset.js.map" />
+    <Content Include="HighCharts\css\annotations\popup.css" />
+    <Content Include="HighCharts\css\highcharts.css" />
+    <Content Include="HighCharts\css\stocktools\gui.css" />
+    <Content Include="HighCharts\css\themes\dark-unica.css" />
+    <Content Include="HighCharts\css\themes\grid-light.css" />
+    <Content Include="HighCharts\css\themes\sand-signika.css" />
+    <Content Include="HighCharts\es-modules\annotations\annotations.src.js" />
+    <Content Include="HighCharts\es-modules\annotations\controllable\ControllableCircle.js" />
+    <Content Include="HighCharts\es-modules\annotations\controllable\ControllableImage.js" />
+    <Content Include="HighCharts\es-modules\annotations\controllable\ControllableLabel.js" />
+    <Content Include="HighCharts\es-modules\annotations\controllable\controllableMixin.js" />
+    <Content Include="HighCharts\es-modules\annotations\controllable\ControllablePath.js" />
+    <Content Include="HighCharts\es-modules\annotations\controllable\ControllableRect.js" />
+    <Content Include="HighCharts\es-modules\annotations\controllable\markerMixin.js" />
+    <Content Include="HighCharts\es-modules\annotations\ControlPoint.js" />
+    <Content Include="HighCharts\es-modules\annotations\eventEmitterMixin.js" />
+    <Content Include="HighCharts\es-modules\annotations\MockPoint.js" />
+    <Content Include="HighCharts\es-modules\annotations\navigationBindings.js" />
+    <Content Include="HighCharts\es-modules\annotations\popup.js" />
+    <Content Include="HighCharts\es-modules\annotations\types\CrookedLine.js" />
+    <Content Include="HighCharts\es-modules\annotations\types\ElliottWave.js" />
+    <Content Include="HighCharts\es-modules\annotations\types\Fibonacci.js" />
+    <Content Include="HighCharts\es-modules\annotations\types\InfinityLine.js" />
+    <Content Include="HighCharts\es-modules\annotations\types\Measure.js" />
+    <Content Include="HighCharts\es-modules\annotations\types\Pitchfork.js" />
+    <Content Include="HighCharts\es-modules\annotations\types\Tunnel.js" />
+    <Content Include="HighCharts\es-modules\annotations\types\VerticalLine.js" />
+    <Content Include="HighCharts\es-modules\error-messages.js" />
+    <Content Include="HighCharts\es-modules\error.js" />
+    <Content Include="HighCharts\es-modules\masters\highcharts-3d.src.js" />
+    <Content Include="HighCharts\es-modules\masters\highcharts-more.src.js" />
+    <Content Include="HighCharts\es-modules\masters\highcharts.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\accessibility.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\annotations-advanced.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\annotations.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\arrow-symbols.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\boost-canvas.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\boost.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\broken-axis.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\bullet.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\current-date-indicator.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\cylinder.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\data.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\datagrouping.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\debugger.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\dependency-wheel.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\drag-panes.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\draggable-points.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\drilldown.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\export-data.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\exporting.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\full-screen.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\funnel.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\gantt.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\grid-axis.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\heatmap.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\histogram-bellcurve.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\item-series.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\networkgraph.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\no-data-to-display.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\offline-exporting.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\oldie-polyfills.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\oldie.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\overlapping-datalabels.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\parallel-coordinates.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\pareto.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\pathfinder.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\pattern-fill.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\price-indicator.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\sankey.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\series-label.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\solid-gauge.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\sonification.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\static-scale.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\stock-tools.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\stock.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\streamgraph.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\sunburst.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\tilemap.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\timeline.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\treegrid.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\treemap.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\variable-pie.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\variwide.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\vector.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\venn.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\windbarb.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\wordcloud.src.js" />
+    <Content Include="HighCharts\es-modules\masters\modules\xrange.src.js" />
+    <Content Include="HighCharts\es-modules\masters\themes\avocado.js" />
+    <Content Include="HighCharts\es-modules\masters\themes\avocado.src.js" />
+    <Content Include="HighCharts\es-modules\masters\themes\dark-blue.src.js" />
+    <Content Include="HighCharts\es-modules\masters\themes\dark-green.src.js" />
+    <Content Include="HighCharts\es-modules\masters\themes\dark-unica.src.js" />
+    <Content Include="HighCharts\es-modules\masters\themes\gray.src.js" />
+    <Content Include="HighCharts\es-modules\masters\themes\grid-light.src.js" />
+    <Content Include="HighCharts\es-modules\masters\themes\grid.src.js" />
+    <Content Include="HighCharts\es-modules\masters\themes\sand-signika.src.js" />
+    <Content Include="HighCharts\es-modules\masters\themes\skies.src.js" />
+    <Content Include="HighCharts\es-modules\masters\themes\sunset.js" />
+    <Content Include="HighCharts\es-modules\masters\themes\sunset.src.js" />
+    <Content Include="HighCharts\es-modules\mixins\ajax.js" />
+    <Content Include="HighCharts\es-modules\mixins\centered-series.js" />
+    <Content Include="HighCharts\es-modules\mixins\derived-series.js" />
+    <Content Include="HighCharts\es-modules\mixins\download-url.js" />
+    <Content Include="HighCharts\es-modules\mixins\draw-point.js" />
+    <Content Include="HighCharts\es-modules\mixins\geometry-circles.js" />
+    <Content Include="HighCharts\es-modules\mixins\geometry.js" />
+    <Content Include="HighCharts\es-modules\mixins\indicator-required.js" />
+    <Content Include="HighCharts\es-modules\mixins\multipe-lines.js" />
+    <Content Include="HighCharts\es-modules\mixins\navigation.js" />
+    <Content Include="HighCharts\es-modules\mixins\nodes.js" />
+    <Content Include="HighCharts\es-modules\mixins\on-series.js" />
+    <Content Include="HighCharts\es-modules\mixins\polygon.js" />
+    <Content Include="HighCharts\es-modules\mixins\reduce-array.js" />
+    <Content Include="HighCharts\es-modules\mixins\tree-series.js" />
+    <Content Include="HighCharts\es-modules\modules\a11y-i18n.src.js" />
+    <Content Include="HighCharts\es-modules\modules\annotations-legacy.src.js" />
+    <Content Include="HighCharts\es-modules\modules\bellcurve.src.js" />
+    <Content Include="HighCharts\es-modules\modules\boost-canvas.src.js" />
+    <Content Include="HighCharts\es-modules\modules\boost.src.js" />
+    <Content Include="HighCharts\es-modules\modules\broken-axis.src.js" />
+    <Content Include="HighCharts\es-modules\modules\bullet.src.js" />
+    <Content Include="HighCharts\es-modules\modules\cylinder.src.js" />
+    <Content Include="HighCharts\es-modules\modules\data.src.js" />
+    <Content Include="HighCharts\es-modules\modules\debugger.src.js" />
+    <Content Include="HighCharts\es-modules\modules\dependency-wheel.src.js" />
+    <Content Include="HighCharts\es-modules\modules\drag-panes.src.js" />
+    <Content Include="HighCharts\es-modules\modules\draggable-points.src.js" />
+    <Content Include="HighCharts\es-modules\modules\drilldown.src.js" />
+    <Content Include="HighCharts\es-modules\modules\export-data.src.js" />
+    <Content Include="HighCharts\es-modules\modules\exporting.src.js" />
+    <Content Include="HighCharts\es-modules\modules\full-screen.src.js" />
+    <Content Include="HighCharts\es-modules\modules\funnel.src.js" />
+    <Content Include="HighCharts\es-modules\modules\histogram.src.js" />
+    <Content Include="HighCharts\es-modules\modules\item-series.src.js" />
+    <Content Include="HighCharts\es-modules\modules\keyboard-navigation.src.js" />
+    <Content Include="HighCharts\es-modules\modules\networkgraph\layouts.js" />
+    <Content Include="HighCharts\es-modules\modules\networkgraph\networkgraph.src.js" />
+    <Content Include="HighCharts\es-modules\modules\networkgraph\QuadTree.js" />
+    <Content Include="HighCharts\es-modules\modules\no-data-to-display.src.js" />
+    <Content Include="HighCharts\es-modules\modules\offline-exporting.src.js" />
+    <Content Include="HighCharts\es-modules\modules\oldie-polyfills.src.js" />
+    <Content Include="HighCharts\es-modules\modules\oldie.src.js" />
+    <Content Include="HighCharts\es-modules\modules\overlapping-datalabels.src.js" />
+    <Content Include="HighCharts\es-modules\modules\parallel-coordinates.src.js" />
+    <Content Include="HighCharts\es-modules\modules\pareto.src.js" />
+    <Content Include="HighCharts\es-modules\modules\pattern-fill.src.js" />
+    <Content Include="HighCharts\es-modules\modules\price-indicator.src.js" />
+    <Content Include="HighCharts\es-modules\modules\sankey.src.js" />
+    <Content Include="HighCharts\es-modules\modules\screen-reader.src.js" />
+    <Content Include="HighCharts\es-modules\modules\series-label.src.js" />
+    <Content Include="HighCharts\es-modules\modules\solid-gauge.src.js" />
+    <Content Include="HighCharts\es-modules\modules\sonification\chartSonify.js" />
+    <Content Include="HighCharts\es-modules\modules\sonification\Earcon.js" />
+    <Content Include="HighCharts\es-modules\modules\sonification\Instrument.js" />
+    <Content Include="HighCharts\es-modules\modules\sonification\instrumentDefinitions.js" />
+    <Content Include="HighCharts\es-modules\modules\sonification\musicalFrequencies.js" />
+    <Content Include="HighCharts\es-modules\modules\sonification\pointSonify.js" />
+    <Content Include="HighCharts\es-modules\modules\sonification\sonification.js" />
+    <Content Include="HighCharts\es-modules\modules\sonification\Timeline.js" />
+    <Content Include="HighCharts\es-modules\modules\sonification\utilities.js" />
+    <Content Include="HighCharts\es-modules\modules\static-scale.src.js" />
+    <Content Include="HighCharts\es-modules\modules\stock-tools-bindings.js" />
+    <Content Include="HighCharts\es-modules\modules\stock-tools-gui.js" />
+    <Content Include="HighCharts\es-modules\modules\streamgraph.src.js" />
+    <Content Include="HighCharts\es-modules\modules\sunburst.src.js" />
+    <Content Include="HighCharts\es-modules\modules\tilemap.src.js" />
+    <Content Include="HighCharts\es-modules\modules\timeline.src.js" />
+    <Content Include="HighCharts\es-modules\modules\treemap.src.js" />
+    <Content Include="HighCharts\es-modules\modules\variable-pie.src.js" />
+    <Content Include="HighCharts\es-modules\modules\variwide.src.js" />
+    <Content Include="HighCharts\es-modules\modules\vector.src.js" />
+    <Content Include="HighCharts\es-modules\modules\venn.src.js" />
+    <Content Include="HighCharts\es-modules\modules\windbarb.src.js" />
+    <Content Include="HighCharts\es-modules\modules\wordcloud.src.js" />
+    <Content Include="HighCharts\es-modules\modules\xrange.src.js" />
+    <Content Include="HighCharts\es-modules\parts-3d\Axis.js" />
+    <Content Include="HighCharts\es-modules\parts-3d\Chart.js" />
+    <Content Include="HighCharts\es-modules\parts-3d\Column.js" />
+    <Content Include="HighCharts\es-modules\parts-3d\Math.js" />
+    <Content Include="HighCharts\es-modules\parts-3d\Pie.js" />
+    <Content Include="HighCharts\es-modules\parts-3d\Scatter.js" />
+    <Content Include="HighCharts\es-modules\parts-3d\Series.js" />
+    <Content Include="HighCharts\es-modules\parts-3d\SVGRenderer.js" />
+    <Content Include="HighCharts\es-modules\parts-3d\VMLRenderer.js" />
+    <Content Include="HighCharts\es-modules\parts-gantt\ArrowSymbols.js" />
+    <Content Include="HighCharts\es-modules\parts-gantt\CurrentDateIndicator.js" />
+    <Content Include="HighCharts\es-modules\parts-gantt\GanttChart.js" />
+    <Content Include="HighCharts\es-modules\parts-gantt\GanttSeries.js" />
+    <Content Include="HighCharts\es-modules\parts-gantt\GridAxis.js" />
+    <Content Include="HighCharts\es-modules\parts-gantt\Pathfinder.js" />
+    <Content Include="HighCharts\es-modules\parts-gantt\PathfinderAlgorithms.js" />
+    <Content Include="HighCharts\es-modules\parts-gantt\Tree.js" />
+    <Content Include="HighCharts\es-modules\parts-gantt\TreeGrid.js" />
+    <Content Include="HighCharts\es-modules\parts-map\ColorAxis.js" />
+    <Content Include="HighCharts\es-modules\parts-map\ColorSeriesMixin.js" />
+    <Content Include="HighCharts\es-modules\parts-map\GeoJSON.js" />
+    <Content Include="HighCharts\es-modules\parts-map\HeatmapSeries.js" />
+    <Content Include="HighCharts\es-modules\parts-map\Map.js" />
+    <Content Include="HighCharts\es-modules\parts-map\MapAxis.js" />
+    <Content Include="HighCharts\es-modules\parts-map\MapBubbleSeries.js" />
+    <Content Include="HighCharts\es-modules\parts-map\MapLineSeries.js" />
+    <Content Include="HighCharts\es-modules\parts-map\MapNavigation.js" />
+    <Content Include="HighCharts\es-modules\parts-map\MapPointer.js" />
+    <Content Include="HighCharts\es-modules\parts-map\MapPointSeries.js" />
+    <Content Include="HighCharts\es-modules\parts-map\MapSeries.js" />
+    <Content Include="HighCharts\es-modules\parts-more\AreaRangeSeries.js" />
+    <Content Include="HighCharts\es-modules\parts-more\AreaSplineRangeSeries.js" />
+    <Content Include="HighCharts\es-modules\parts-more\BoxPlotSeries.js" />
+    <Content Include="HighCharts\es-modules\parts-more\BubbleLegend.js" />
+    <Content Include="HighCharts\es-modules\parts-more\BubbleSeries.js" />
+    <Content Include="HighCharts\es-modules\parts-more\ColumnPyramidSeries.js" />
+    <Content Include="HighCharts\es-modules\parts-more\ColumnRangeSeries.js" />
+    <Content Include="HighCharts\es-modules\parts-more\ErrorBarSeries.js" />
+    <Content Include="HighCharts\es-modules\parts-more\GaugeSeries.js" />
+    <Content Include="HighCharts\es-modules\parts-more\PackedBubbleSeries.js" />
+    <Content Include="HighCharts\es-modules\parts-more\Pane.js" />
+    <Content Include="HighCharts\es-modules\parts-more\Polar.js" />
+    <Content Include="HighCharts\es-modules\parts-more\PolygonSeries.js" />
+    <Content Include="HighCharts\es-modules\parts-more\RadialAxis.js" />
+    <Content Include="HighCharts\es-modules\parts-more\WaterfallSeries.js" />
+    <Content Include="HighCharts\es-modules\parts.js" />
+    <Content Include="HighCharts\es-modules\parts\AreaSeries.js" />
+    <Content Include="HighCharts\es-modules\parts\AreaSplineSeries.js" />
+    <Content Include="HighCharts\es-modules\parts\Axis.js" />
+    <Content Include="HighCharts\es-modules\parts\BarSeries.js" />
+    <Content Include="HighCharts\es-modules\parts\CandlestickSeries.js" />
+    <Content Include="HighCharts\es-modules\parts\Chart.js" />
+    <Content Include="HighCharts\es-modules\parts\Color.js" />
+    <Content Include="HighCharts\es-modules\parts\ColumnSeries.js" />
+    <Content Include="HighCharts\es-modules\parts\DataGrouping.js" />
+    <Content Include="HighCharts\es-modules\parts\DataLabels.js" />
+    <Content Include="HighCharts\es-modules\parts\DateTimeAxis.js" />
+    <Content Include="HighCharts\es-modules\parts\Dynamics.js" />
+    <Content Include="HighCharts\es-modules\parts\FlagsSeries.js" />
+    <Content Include="HighCharts\es-modules\parts\Globals.js" />
+    <Content Include="HighCharts\es-modules\parts\Html.js" />
+    <Content Include="HighCharts\es-modules\parts\Interaction.js" />
+    <Content Include="HighCharts\es-modules\parts\Legend.js" />
+    <Content Include="HighCharts\es-modules\parts\LogarithmicAxis.js" />
+    <Content Include="HighCharts\es-modules\parts\MSPointer.js" />
+    <Content Include="HighCharts\es-modules\parts\Navigator.js" />
+    <Content Include="HighCharts\es-modules\parts\OHLCSeries.js" />
+    <Content Include="HighCharts\es-modules\parts\Options.js" />
+    <Content Include="HighCharts\es-modules\parts\OrdinalAxis.js" />
+    <Content Include="HighCharts\es-modules\parts\PieSeries.js" />
+    <Content Include="HighCharts\es-modules\parts\PlotBandSeries.experimental.js" />
+    <Content Include="HighCharts\es-modules\parts\PlotLineOrBand.js" />
+    <Content Include="HighCharts\es-modules\parts\Point.js" />
+    <Content Include="HighCharts\es-modules\parts\Pointer.js" />
+    <Content Include="HighCharts\es-modules\parts\RangeSelector.js" />
+    <Content Include="HighCharts\es-modules\parts\Responsive.js" />
+    <Content Include="HighCharts\es-modules\parts\ScatterSeries.js" />
+    <Content Include="HighCharts\es-modules\parts\ScrollablePlotArea.js" />
+    <Content Include="HighCharts\es-modules\parts\Scrollbar.js" />
+    <Content Include="HighCharts\es-modules\parts\Series.js" />
+    <Content Include="HighCharts\es-modules\parts\SplineSeries.js" />
+    <Content Include="HighCharts\es-modules\parts\Stacking.js" />
+    <Content Include="HighCharts\es-modules\parts\StockChart.js" />
+    <Content Include="HighCharts\es-modules\parts\SvgRenderer.js" />
+    <Content Include="HighCharts\es-modules\parts\Tick.js" />
+    <Content Include="HighCharts\es-modules\parts\Time.js" />
+    <Content Include="HighCharts\es-modules\parts\Tooltip.js" />
+    <Content Include="HighCharts\es-modules\parts\TouchPointer.js" />
+    <Content Include="HighCharts\es-modules\parts\Utilities.js" />
+    <Content Include="HighCharts\es-modules\themes\avocado.js" />
+    <Content Include="HighCharts\es-modules\themes\dark-blue.js" />
+    <Content Include="HighCharts\es-modules\themes\dark-green.js" />
+    <Content Include="HighCharts\es-modules\themes\dark-unica.js" />
+    <Content Include="HighCharts\es-modules\themes\gray.js" />
+    <Content Include="HighCharts\es-modules\themes\grid-light.js" />
+    <Content Include="HighCharts\es-modules\themes\grid.js" />
+    <Content Include="HighCharts\es-modules\themes\sand-signika.js" />
+    <Content Include="HighCharts\es-modules\themes\skies.js" />
+    <Content Include="HighCharts\es-modules\themes\sunset.js" />
+    <Content Include="HighCharts\highcharts-3d.js" />
+    <Content Include="HighCharts\highcharts-3d.src.js" />
+    <Content Include="HighCharts\highcharts-more.js" />
+    <Content Include="HighCharts\highcharts-more.src.js" />
+    <Content Include="HighCharts\highcharts.js" />
+    <Content Include="HighCharts\highcharts.src.js" />
+    <Content Include="HighCharts\lib\canvg.js" />
+    <Content Include="HighCharts\lib\canvg.src.js" />
+    <Content Include="HighCharts\lib\jspdf.js" />
+    <Content Include="HighCharts\lib\jspdf.src.js" />
+    <Content Include="HighCharts\lib\rgbcolor.js" />
+    <Content Include="HighCharts\lib\rgbcolor.src.js" />
+    <Content Include="HighCharts\lib\svg2pdf.js" />
+    <Content Include="HighCharts\lib\svg2pdf.src.js" />
+    <Content Include="HighCharts\modules\accessibility.js" />
+    <Content Include="HighCharts\modules\accessibility.src.js" />
+    <Content Include="HighCharts\modules\annotations-advanced.js" />
+    <Content Include="HighCharts\modules\annotations-advanced.src.js" />
+    <Content Include="HighCharts\modules\annotations.js" />
+    <Content Include="HighCharts\modules\annotations.src.js" />
+    <Content Include="HighCharts\modules\arrow-symbols.js" />
+    <Content Include="HighCharts\modules\arrow-symbols.src.js" />
+    <Content Include="HighCharts\modules\boost-canvas.js" />
+    <Content Include="HighCharts\modules\boost-canvas.src.js" />
+    <Content Include="HighCharts\modules\boost.js" />
+    <Content Include="HighCharts\modules\boost.src.js" />
+    <Content Include="HighCharts\modules\broken-axis.js" />
+    <Content Include="HighCharts\modules\broken-axis.src.js" />
+    <Content Include="HighCharts\modules\bullet.js" />
+    <Content Include="HighCharts\modules\bullet.src.js" />
+    <Content Include="HighCharts\modules\current-date-indicator.js" />
+    <Content Include="HighCharts\modules\current-date-indicator.src.js" />
+    <Content Include="HighCharts\modules\cylinder.js" />
+    <Content Include="HighCharts\modules\cylinder.src.js" />
+    <Content Include="HighCharts\modules\data.js" />
+    <Content Include="HighCharts\modules\data.src.js" />
+    <Content Include="HighCharts\modules\datagrouping.js" />
+    <Content Include="HighCharts\modules\datagrouping.src.js" />
+    <Content Include="HighCharts\modules\debugger.js" />
+    <Content Include="HighCharts\modules\debugger.src.js" />
+    <Content Include="HighCharts\modules\dependency-wheel.js" />
+    <Content Include="HighCharts\modules\dependency-wheel.src.js" />
+    <Content Include="HighCharts\modules\drag-panes.js" />
+    <Content Include="HighCharts\modules\drag-panes.src.js" />
+    <Content Include="HighCharts\modules\draggable-points.js" />
+    <Content Include="HighCharts\modules\draggable-points.src.js" />
+    <Content Include="HighCharts\modules\drilldown.js" />
+    <Content Include="HighCharts\modules\drilldown.src.js" />
+    <Content Include="HighCharts\modules\export-data.js" />
+    <Content Include="HighCharts\modules\export-data.src.js" />
+    <Content Include="HighCharts\modules\exporting.js" />
+    <Content Include="HighCharts\modules\exporting.src.js" />
+    <Content Include="HighCharts\modules\full-screen.js" />
+    <Content Include="HighCharts\modules\full-screen.src.js" />
+    <Content Include="HighCharts\modules\funnel.js" />
+    <Content Include="HighCharts\modules\funnel.src.js" />
+    <Content Include="HighCharts\modules\gantt.js" />
+    <Content Include="HighCharts\modules\gantt.src.js" />
+    <Content Include="HighCharts\modules\grid-axis.js" />
+    <Content Include="HighCharts\modules\grid-axis.src.js" />
+    <Content Include="HighCharts\modules\heatmap.js" />
+    <Content Include="HighCharts\modules\heatmap.src.js" />
+    <Content Include="HighCharts\modules\histogram-bellcurve.js" />
+    <Content Include="HighCharts\modules\histogram-bellcurve.src.js" />
+    <Content Include="HighCharts\modules\item-series.js" />
+    <Content Include="HighCharts\modules\item-series.src.js" />
+    <Content Include="HighCharts\modules\networkgraph.js" />
+    <Content Include="HighCharts\modules\networkgraph.src.js" />
+    <Content Include="HighCharts\modules\no-data-to-display.js" />
+    <Content Include="HighCharts\modules\no-data-to-display.src.js" />
+    <Content Include="HighCharts\modules\offline-exporting.js" />
+    <Content Include="HighCharts\modules\offline-exporting.src.js" />
+    <Content Include="HighCharts\modules\oldie-polyfills.js" />
+    <Content Include="HighCharts\modules\oldie-polyfills.src.js" />
+    <Content Include="HighCharts\modules\oldie.js" />
+    <Content Include="HighCharts\modules\oldie.src.js" />
+    <Content Include="HighCharts\modules\overlapping-datalabels.js" />
+    <Content Include="HighCharts\modules\overlapping-datalabels.src.js" />
+    <Content Include="HighCharts\modules\parallel-coordinates.js" />
+    <Content Include="HighCharts\modules\parallel-coordinates.src.js" />
+    <Content Include="HighCharts\modules\pareto.js" />
+    <Content Include="HighCharts\modules\pareto.src.js" />
+    <Content Include="HighCharts\modules\pathfinder.js" />
+    <Content Include="HighCharts\modules\pathfinder.src.js" />
+    <Content Include="HighCharts\modules\pattern-fill.js" />
+    <Content Include="HighCharts\modules\pattern-fill.src.js" />
+    <Content Include="HighCharts\modules\price-indicator.js" />
+    <Content Include="HighCharts\modules\price-indicator.src.js" />
+    <Content Include="HighCharts\modules\sankey.js" />
+    <Content Include="HighCharts\modules\sankey.src.js" />
+    <Content Include="HighCharts\modules\series-label.js" />
+    <Content Include="HighCharts\modules\series-label.src.js" />
+    <Content Include="HighCharts\modules\solid-gauge.js" />
+    <Content Include="HighCharts\modules\solid-gauge.src.js" />
+    <Content Include="HighCharts\modules\sonification.js" />
+    <Content Include="HighCharts\modules\sonification.src.js" />
+    <Content Include="HighCharts\modules\static-scale.js" />
+    <Content Include="HighCharts\modules\static-scale.src.js" />
+    <Content Include="HighCharts\modules\stock-tools.js" />
+    <Content Include="HighCharts\modules\stock-tools.src.js" />
+    <Content Include="HighCharts\modules\stock.js" />
+    <Content Include="HighCharts\modules\stock.src.js" />
+    <Content Include="HighCharts\modules\streamgraph.js" />
+    <Content Include="HighCharts\modules\streamgraph.src.js" />
+    <Content Include="HighCharts\modules\sunburst.js" />
+    <Content Include="HighCharts\modules\sunburst.src.js" />
+    <Content Include="HighCharts\modules\tilemap.js" />
+    <Content Include="HighCharts\modules\tilemap.src.js" />
+    <Content Include="HighCharts\modules\timeline.js" />
+    <Content Include="HighCharts\modules\timeline.src.js" />
+    <Content Include="HighCharts\modules\treegrid.js" />
+    <Content Include="HighCharts\modules\treegrid.src.js" />
+    <Content Include="HighCharts\modules\treemap.js" />
+    <Content Include="HighCharts\modules\treemap.src.js" />
+    <Content Include="HighCharts\modules\variable-pie.js" />
+    <Content Include="HighCharts\modules\variable-pie.src.js" />
+    <Content Include="HighCharts\modules\variwide.js" />
+    <Content Include="HighCharts\modules\variwide.src.js" />
+    <Content Include="HighCharts\modules\vector.js" />
+    <Content Include="HighCharts\modules\vector.src.js" />
+    <Content Include="HighCharts\modules\venn.js" />
+    <Content Include="HighCharts\modules\venn.src.js" />
+    <Content Include="HighCharts\modules\windbarb.js" />
+    <Content Include="HighCharts\modules\windbarb.src.js" />
+    <Content Include="HighCharts\modules\wordcloud.js" />
+    <Content Include="HighCharts\modules\wordcloud.src.js" />
+    <Content Include="HighCharts\modules\xrange.js" />
+    <Content Include="HighCharts\modules\xrange.src.js" />
+    <Content Include="HighCharts\themes\avocado.js" />
+    <Content Include="HighCharts\themes\avocado.src.js" />
+    <Content Include="HighCharts\themes\dark-blue.js" />
+    <Content Include="HighCharts\themes\dark-blue.src.js" />
+    <Content Include="HighCharts\themes\dark-green.js" />
+    <Content Include="HighCharts\themes\dark-green.src.js" />
+    <Content Include="HighCharts\themes\dark-unica.js" />
+    <Content Include="HighCharts\themes\dark-unica.src.js" />
+    <Content Include="HighCharts\themes\gray.js" />
+    <Content Include="HighCharts\themes\gray.src.js" />
+    <Content Include="HighCharts\themes\grid-light.js" />
+    <Content Include="HighCharts\themes\grid-light.src.js" />
+    <Content Include="HighCharts\themes\grid.js" />
+    <Content Include="HighCharts\themes\grid.src.js" />
+    <Content Include="HighCharts\themes\sand-signika.js" />
+    <Content Include="HighCharts\themes\sand-signika.src.js" />
+    <Content Include="HighCharts\themes\skies.js" />
+    <Content Include="HighCharts\themes\skies.src.js" />
+    <Content Include="HighCharts\themes\sunset.js" />
+    <Content Include="HighCharts\themes\sunset.src.js" />
+    <Content Include="images\app.png" />
+    <Content Include="images\avatar.jpg" />
+    <Content Include="images\avatar_default.jpg" />
+    <Content Include="images\avatar_default_female.jpg" />
+    <Content Include="images\BuildingImage\building2.png" />
+    <Content Include="images\BuildingImage\BuildingImage.jpg" />
+    <Content Include="images\DigitalSignImage\011018152050.png" />
+    <Content Include="images\DigitalSignImage\011018152110.png" />
+    <Content Include="images\DigitalSignImage\011018153512.png" />
+    <Content Include="images\DigitalSignImage\011018154353.png" />
+    <Content Include="images\DigitalSignImage\011018155002.png" />
+    <Content Include="images\DigitalSignImage\011018160350.png" />
+    <Content Include="images\DigitalSignImage\011018160355.png" />
+    <Content Include="images\DigitalSignImage\011018160436.png" />
+    <Content Include="images\DigitalSignImage\011018160447.png" />
+    <Content Include="images\DigitalSignImage\011018161034.png" />
+    <Content Include="images\DigitalSignImage\011018161039.png" />
+    <Content Include="images\DigitalSignImage\011018161045.png" />
+    <Content Include="images\DigitalSignImage\011018161221.png" />
+    <Content Include="images\DigitalSignImage\011018161225.png" />
+    <Content Include="images\DigitalSignImage\011018161231.png" />
+    <Content Include="images\DigitalSignImage\011018161246.png" />
+    <Content Include="images\DigitalSignImage\011018162343.png" />
+    <Content Include="images\DigitalSignImage\011018162422.png" />
+    <Content Include="images\DigitalSignImage\011018162433.png" />
+    <Content Include="images\DigitalSignImage\011018162459.png" />
+    <Content Include="images\DigitalSignImage\011018162511.png" />
+    <Content Include="images\DigitalSignImage\011018162835.png" />
+    <Content Include="images\DigitalSignImage\011018162948.png" />
+    <Content Include="images\DigitalSignImage\011018163228.png" />
+    <Content Include="images\DigitalSignImage\011018163322.png" />
+    <Content Include="images\DigitalSignImage\011018163412.png" />
+    <Content Include="images\DigitalSignImage\011018163419.png" />
+    <Content Include="images\DigitalSignImage\011018163428.png" />
+    <Content Include="images\DigitalSignImage\011018163446.png" />
+    <Content Include="images\DigitalSignImage\011018163454.png" />
+    <Content Include="images\DigitalSignImage\011018163503.png" />
+    <Content Include="images\DigitalSignImage\011018164202.png" />
+    <Content Include="images\DigitalSignImage\011018164319.png" />
+    <Content Include="images\DigitalSignImage\011018164601.png" />
+    <Content Include="images\DigitalSignImage\021018114805.png" />
+    <Content Include="images\DigitalSignImage\021018114828.png" />
+    <Content Include="images\DigitalSignImage\021018114856.png" />
+    <Content Include="images\DigitalSignImage\021018114915.png" />
+    <Content Include="images\DigitalSignImage\021018193224.png" />
+    <Content Include="images\DigitalSignImage\021018193530.png" />
+    <Content Include="images\DigitalSignImage\021018193635.png" />
+    <Content Include="images\DigitalSignImage\021118133535.png" />
+    <Content Include="images\DigitalSignImage\041018160041.png" />
+    <Content Include="images\DigitalSignImage\041018160647.png" />
+    <Content Include="images\DigitalSignImage\041018161201.png" />
+    <Content Include="images\DigitalSignImage\041018161803.png" />
+    <Content Include="images\DigitalSignImage\041018161829.png" />
+    <Content Include="images\DigitalSignImage\041018162331.png" />
+    <Content Include="images\DigitalSignImage\041018165836.png" />
+    <Content Include="images\DigitalSignImage\041018170437.png" />
+    <Content Include="images\DigitalSignImage\041018170452.png" />
+    <Content Include="images\DigitalSignImage\081018170302.png" />
+    <Content Include="images\DigitalSignImage\101018111823.png" />
+    <Content Include="images\DigitalSignImage\240918190515.png" />
+    <Content Include="images\DigitalSignImage\240918190637.png" />
+    <Content Include="images\DigitalSignImage\240918190835.png" />
+    <Content Include="images\DigitalSignImage\240918191747.png" />
+    <Content Include="images\DigitalSignImage\240918191808.png" />
+    <Content Include="images\DigitalSignImage\240918191905.png" />
+    <Content Include="images\DigitalSignImage\240918192505.png" />
+    <Content Include="images\DigitalSignImage\240918192622.png" />
+    <Content Include="images\DigitalSignImage\240918192638.png" />
+    <Content Include="images\DigitalSignImage\240918195445.png" />
+    <Content Include="images\DigitalSignImage\240918195509.png" />
+    <Content Include="images\DigitalSignImage\250918123145.png" />
+    <Content Include="images\DigitalSignImage\250918123156.png" />
+    <Content Include="images\DigitalSignImage\250918123542.png" />
+    <Content Include="images\DigitalSignImage\250918123632.png" />
+    <Content Include="images\DigitalSignImage\250918123801.png" />
+    <Content Include="images\DigitalSignImage\250918124035.png" />
+    <Content Include="images\DigitalSignImage\250918124043.png" />
+    <Content Include="images\DigitalSignImage\250918124119.png" />
+    <Content Include="images\DigitalSignImage\250918124451.png" />
+    <Content Include="images\DigitalSignImage\250918124506.png" />
+    <Content Include="images\DigitalSignImage\250918124547.png" />
+    <Content Include="images\DigitalSignImage\250918124726.png" />
+    <Content Include="images\DigitalSignImage\250918124847.png" />
+    <Content Include="images\DigitalSignImage\250918124858.png" />
+    <Content Include="images\DigitalSignImage\250918124945.png" />
+    <Content Include="images\DigitalSignImage\250918125038.png" />
+    <Content Include="images\DigitalSignImage\250918125129.png" />
+    <Content Include="images\DigitalSignImage\250918125143.png" />
+    <Content Include="images\DigitalSignImage\250918125500.png" />
+    <Content Include="images\DigitalSignImage\250918125534.png" />
+    <Content Include="images\DigitalSignImage\250918125555.png" />
+    <Content Include="images\DigitalSignImage\250918131336.png" />
+    <Content Include="images\DigitalSignImage\250918131610.png" />
+    <Content Include="images\DigitalSignImage\250918131615.png" />
+    <Content Include="images\DigitalSignImage\250918131741.png" />
+    <Content Include="images\DigitalSignImage\250918131816.png" />
+    <Content Include="images\DigitalSignImage\250918131935.png" />
+    <Content Include="images\DigitalSignImage\250918132111.png" />
+    <Content Include="images\DigitalSignImage\250918132208.png" />
+    <Content Include="images\DigitalSignImage\250918133157.png" />
+    <Content Include="images\DigitalSignImage\250918144216.png" />
+    <Content Include="images\DigitalSignImage\250918144419.png" />
+    <Content Include="images\DigitalSignImage\250918144427.png" />
+    <Content Include="images\DigitalSignImage\250918144432.png" />
+    <Content Include="images\DigitalSignImage\250918144455.png" />
+    <Content Include="images\DigitalSignImage\260918170904.png" />
+    <Content Include="images\DigitalSignImage\260918171014.png" />
+    <Content Include="images\DigitalSignImage\280918114702.png" />
+    <Content Include="images\DigitalSignImage\280918114920.png" />
+    <Content Include="images\DigitalSignImage\280918114949.png" />
+    <Content Include="images\DigitalSignImage\280918115116.png" />
+    <Content Include="images\DigitalSignImage\280918120253.png" />
+    <Content Include="images\DigitalSignImage\280918120432.png" />
+    <Content Include="images\DigitalSignImage\280918120504.png" />
+    <Content Include="images\DigitalSignImage\280918120518.png" />
+    <Content Include="images\DigitalSignImage\280918120548.png" />
+    <Content Include="images\DigitalSignImage\280918121211.png" />
+    <Content Include="images\DigitalSignImage\280918121304.png" />
+    <Content Include="images\DigitalSignImage\280918121346.png" />
+    <Content Include="images\DigitalSignImage\280918121555.png" />
+    <Content Include="images\DigitalSignImage\280918121605.png" />
+    <Content Include="images\DigitalSignImage\280918130400.png" />
+    <Content Include="images\DigitalSignImage\280918140613.png" />
+    <Content Include="images\DigitalSignImage\280918140721.png" />
+    <Content Include="images\DigitalSignImage\280918160606.png" />
+    <Content Include="images\DigitalSignImage\280918160737.png" />
+    <Content Include="images\DigitalSignImage\280918160809.png" />
+    <Content Include="images\DigitalSignImage\281018194431.png" />
+    <Content Include="images\icon\open.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\LogoImage\logo.png" />
+    <Content Include="images\LogoImage\m4.png" />
+    <Content Include="images\m4.png" />
+    <Content Include="images\main.png" />
+    <Content Include="images\phone-1.png" />
+    <Content Include="images\phone-2.png" />
+    <Content Include="images\render-1.png" />
+    <Content Include="images\thumb_1.png" />
+    <Content Include="images\thumb_2.png" />
+    <Content Include="images\thumb_3.png" />
+    <Content Include="images\Userlogo.png" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="images\logo.psd" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Views\ServiceRequests\Create.cshtml" />
+    <Content Include="Views\ServiceRequests\Edit.cshtml" />
+    <Content Include="Views\ServiceRequests\Index.cshtml" />
+    <Content Include="Views\Shared\_DashBoardLayout.cshtml" />
+    <Content Include="Views\Dashboard\OverView.cshtml" />
+    <Content Include="Views\Dashboard\KPI.cshtml" />
+    <Content Include="Views\ServiceReports\Index.cshtml" />
+    <Content Include="Views\Settings\UserProfile.cshtml" />
+    <Content Include="Views\Settings\ChangePassword.cshtml" />
+    <Content Include="Views\ServiceReports\Edit.cshtml" />
+    <Content Include="Views\Settings\BuildingLogo.cshtml" />
+    <Content Include="Views\Settings\CompanyLogo.cshtml" />
+    <Content Include="Views\Settings\Features.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="fonts\" />
+    <Folder Include="Serivce_Request_Image\" />
+    <Folder Include="Views\Home\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52025</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52025/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.9.1\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.9.1\build\Microsoft.ApplicationInsights.DependencyCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.9.1\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.9.1\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.9.1\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.9.1\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.9.1\build\Microsoft.ApplicationInsights.WindowsServer.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.2.9.1\build\Microsoft.ApplicationInsights.WindowsServer.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.Web.2.9.1\build\Microsoft.ApplicationInsights.Web.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.Web.2.9.1\build\Microsoft.ApplicationInsights.Web.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.9.1\build\Microsoft.ApplicationInsights.DependencyCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.9.1\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.9.1\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.9.1\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.9.1\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.9.1\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.2.9.1\build\Microsoft.ApplicationInsights.WindowsServer.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.9.1\build\Microsoft.ApplicationInsights.WindowsServer.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.Web.2.9.1\build\Microsoft.ApplicationInsights.Web.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.Web.2.9.1\build\Microsoft.ApplicationInsights.Web.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

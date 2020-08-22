@@ -1,0 +1,52 @@
+﻿@model EFIRM.Models.FeaturesViewModels
+
+@{
+	ViewBag.Title = "Features";
+	Layout = "~/Views/Shared/_DashBoardLayout.cshtml";
+}
+
+<h2>Features</h2>
+
+<div>
+	@using (Html.BeginForm("Features", "Settings", FormMethod.Post))
+	{
+	<div class="row">
+		<div class="form-group col-md-5">
+			<label style="word-wrap:break-word;font-size:initial">
+				@Html.CheckBoxFor(m => m.ServiceRequest)&nbsp;&nbsp;Service Request
+			</label>
+		</div>
+		
+	</div>
+	<div class="row">
+		<div class="form-group col-md-5">
+			<label style="word-wrap:break-word;font-size:initial">
+				@Html.CheckBoxFor(m => m.WorkOrderAssigning)&nbsp;&nbsp;Work Order Assigning
+			</label>
+		</div>		
+	</div>
+	<div class="row">
+		<div class="form-group col-md-5">
+			<label style="word-wrap:break-word;font-size:initial">
+				@Html.CheckBoxFor(m => m.DigitalSignatureForTechnician)&nbsp;&nbsp;Digital Signature For Technician
+			</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="form-group col-md-5">
+			<label style="word-wrap:break-word;font-size:initial">
+				@Html.CheckBoxFor(m => m.DigitalSignatureForTenant)&nbsp;&nbsp;Digital Signature For Tenant
+			</label>
+		</div>
+	</div>
+	<br />
+		<input type="submit" value="Save" class="btn btn-success" />
+		<a class="btn btn-primary" href="~/Settings/Features">Cancel</a>
+	}
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#FT').addClass("active");
+	});
+</script>

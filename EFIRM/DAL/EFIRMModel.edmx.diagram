@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c8076496d5e14f26864dde6e0097b6af" Name="Diagram1" ZoomLevel="102">
+        <EntityTypeShape EntityType="EFIRMDBModel.AlarmPointFetchDateTime" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.AnalogValueStatu" Width="1.5" PointX="5.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.AssetsView" Width="1.5" PointX="7.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.DigitalValueStatu" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.From_Unit" Width="1.5" PointX="13" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.LocationMaster" Width="1.5" PointX="3" PointY="46.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.NodeType" Width="1.5" PointX="2.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.Point" Width="1.5" PointX="5.75" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.PointValue_Digital" Width="1.5" PointX="9.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.PPMWorkOrderService" Width="1.5" PointX="13.75" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.PPMWorkOrderServiceSoft" Width="1.5" PointX="24.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.RunhoursAnalogPointFetchDateTime" Width="1.5" PointX="24.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.RunhoursDigitalPointFetchDateTime" Width="1.5" PointX="18.75" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.Sel_Point" Width="1.5" PointX="2.75" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tbl_AlarmSummary" Width="1.5" PointX="26.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tbl_Devices" Width="1.5" PointX="9" PointY="81.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tbl_EscalationMatrixNotificationStatus" Width="1.5" PointX="4.75" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tbl_ExceptionLogItems" Width="1.5" PointX="24.75" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tbl_LogParameter" Width="1.5" PointX="11" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tbl_newUpdatealarm" Width="1.5" PointX="26.75" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tbl_ObjectList" Width="1.5" PointX="11.25" PointY="81.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tbl_ObjectType" Width="1.5" PointX="26.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tbl_PointValue_Digital" Width="1.5" PointX="27.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tbl_RoomBookingMailStatus" Width="1.5" PointX="13.75" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tbl_RunHrsOnOffTime" Width="1.5" PointX="7.5" PointY="67.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tbl_TaskDetailforAssetMaintenance" Width="1.5" PointX="15.75" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tbl_TaskDetails" Width="1.5" PointX="27.75" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tbl_TotalizationHistory" Width="1.5" PointX="13.5" PointY="74" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tbl_TotalizationLastFetchStatus" Width="1.5" PointX="7.5" PointY="74.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tbl_TotalizationStatus" Width="1.5" PointX="7.5" PointY="77.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tbl_UnitOfMeasure" Width="1.5" PointX="28.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAccountBalance" Width="1.5" PointX="5.25" PointY="61.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAccountHead" Width="1.5" PointX="17" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAccountSubHead" Width="1.5" PointX="19.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblActualValueDigital" Width="1.5" PointX="28.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblActualValueFloat" Width="1.5" PointX="28.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAddWorkForceSkill" Width="1.5" PointX="28.75" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAlarmGenerationLastCheckTimeStamp" Width="1.5" PointX="17.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAlarmType" Width="1.5" PointX="28.75" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAnalogAlarm" Width="1.5" PointX="28.75" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblApproverManagersList" Width="1.5" PointX="25" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblArea" Width="1.5" PointX="5.25" PointY="49" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAreaUnit" Width="1.5" PointX="29.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAssetComponent" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAssetComponentType" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAssetGroup" Width="1.5" PointX="8.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAssetListReportTemplate" Width="1.5" PointX="30.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAsset" Width="1.5" PointX="5.25" PointY="68.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAssetsFrequency" Width="1.5" PointX="29.75" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAssetsRunHour" Width="1.5" PointX="30.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.TblAssetToMaintenanceTeamMapping" Width="1.5" PointX="30.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAssetType" Width="1.5" PointX="8.75" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAssetTypeFrequency" Width="1.5" PointX="30.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAssetTypeNQualificationLevel" Width="1.5" PointX="15" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAttachedResourcesRoomWise" Width="1.5" PointX="20.75" PointY="59" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblAuditReport" Width="1.5" PointX="30.75" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblBimonthlyLogger" Width="1.5" PointX="16.75" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblBookingRate" Width="1.5" PointX="17.75" PointY="58.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblBuilding" Width="1.5" PointX="3" PointY="53.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblBuildingHoliday" Width="1.5" PointX="31.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblBuildingWorkingSchedule" Width="1.5" PointX="31.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblCategory" Width="1.5" PointX="18.75" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblCategory_HelpDesk" Width="1.5" PointX="20.75" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblCommentsSRP" Width="1.5" PointX="22.75" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblComponentTypeAsset" Width="1.5" PointX="11" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblCountryDetail" Width="1.5" PointX="24.75" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblCourse" Width="1.5" PointX="20" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblCurrencyMaster" Width="1.5" PointX="26.75" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblCustomerFeedback" Width="1.5" PointX="5.25" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblCustomerFeedbackUserRoleMapping" Width="1.5" PointX="7.5" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblDailyLogger" Width="1.5" PointX="2.75" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblDatabaseConnectionString" Width="1.5" PointX="32.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.TblDefectTracking" Width="1.5" PointX="32.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblDefineSoftservice" Width="1.5" PointX="22.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblDesignation" Width="1.5" PointX="8.75" PointY="43" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblDocument" Width="1.5" PointX="27" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblDocumentType" Width="1.5" PointX="24.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblEmailConfiguration" Width="1.5" PointX="32.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblExtraAddedResourcesForBooking" Width="1.5" PointX="32.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblFacility" Width="1.5" PointX="0.75" PointY="49.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblFacilityHoliday" Width="1.5" PointX="32.75" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblFacilityWorkingSchedule" Width="1.5" PointX="32.75" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblFBAnnouncementMngt" Width="1.5" PointX="23.75" PointY="53.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblFBAttachResourcesRoomWise" Width="1.5" PointX="17.75" PointY="62" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblFBBookingSlot" Width="1.5" PointX="8" PointY="45.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblFBBusinessRule" Width="1.5" PointX="32.75" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblFBInvoiceDetail" Width="1.5" PointX="5.25" PointY="65.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblFBInvoiceIdRoomBookingId" Width="1.5" PointX="28.75" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblFBRoomDetail" Width="1.5" PointX="17.75" PointY="69.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblFBRoomDetailsWiseRate" Width="1.5" PointX="20" PointY="69" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblFiscalYear" Width="1.5" PointX="19.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblFloor" Width="1.5" PointX="5.25" PointY="53.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblFloorHoliday" Width="1.5" PointX="33.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblFloorWorkingSchedule" Width="1.5" PointX="33.75" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblForm" Width="1.5" PointX="26" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblFrequencyType" Width="1.5" PointX="34.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblGLCode" Width="1.5" PointX="14.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblHelpDeskBusinessRule" Width="1.5" PointX="22.75" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblHelpDeskChangeRTAsset" Width="1.5" PointX="15.25" PointY="62.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblHelpDeskChangeRTDetail" Width="1.5" PointX="11" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblHelpDeskChangeRTResource" Width="1.5" PointX="13.25" PointY="47.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblHelpDeskRedirectAsset" Width="1.5" PointX="19.25" PointY="45.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblHelpDeskRedirectFlow" Width="1.5" PointX="11" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblHelpDeskRedirectResource" Width="1.5" PointX="13.25" PointY="44.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblHelpDeskTemplate" Width="1.5" PointX="34.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblHourlyLogger" Width="1.5" PointX="34.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblIfcTagMaster" Width="1.5" PointX="34.75" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblInventoryComponent" Width="1.5" PointX="20.75" PointY="35.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblInventoryIssueReturn" Width="1.5" PointX="18.5" PointY="51.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblInventoryPart" Width="1.5" PointX="18.5" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblIssueReturnItemsList" Width="1.5" PointX="20.75" PointY="49" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblIssueReturnItemsListComponent" Width="1.5" PointX="20.75" PointY="53.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblKeyPanel" Width="1.5" PointX="22.75" PointY="35.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblKeyReturnedStatu" Width="1.5" PointX="34.75" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblKey" Width="1.5" PointX="7.5" PointY="58.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblKeysInPanel" Width="1.5" PointX="24.75" PointY="35.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblKeysIssueReturn" Width="1.5" PointX="34.75" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblKPI" Width="1.5" PointX="11" PointY="74.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblKPI_AssetDetails" Width="1.5" PointX="34.75" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblLicence" Width="1.5" PointX="2.75" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblLoggerHistory" Width="1.5" PointX="35.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.TblMachineStateReport" Width="1.5" PointX="26.75" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblMainModule" Width="1.5" PointX="23.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblMaintenanceActivite" Width="1.5" PointX="0.75" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblMaintenanceActivityAsset" Width="1.5" PointX="14" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblMaintenanceTask" Width="1.5" PointX="0.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblMaintenanceTaskActivity" Width="1.5" PointX="3" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblMaintenanceTeam" Width="1.5" PointX="11" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblMaintenanceType" Width="1.5" PointX="35.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblMakeMaster" Width="1.5" PointX="28.75" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblModelMaster" Width="1.5" PointX="34.75" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblModule" Width="1.5" PointX="22.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblMonthlyLogger" Width="1.5" PointX="36.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblMRCourierServiceProvider" Width="1.5" PointX="14" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblMRMailroomInbound" Width="1.5" PointX="16.25" PointY="45.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblMRMailroomOutbound" Width="1.5" PointX="13.25" PointY="50.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblMRModeOfDelivery" Width="1.5" PointX="14" PointY="66" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblNodeDoumentView" Width="1.5" PointX="36.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblNode" Width="1.5" PointX="36.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblNotification_HelpDesk" Width="1.5" PointX="36.75" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblNotificationQueue" Width="1.5" PointX="36.75" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblOccupant" Width="1.5" PointX="3" PointY="62.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblPart" Width="1.5" PointX="10.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblPartsAsset" Width="1.5" PointX="10.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblPartsType" Width="1.5" PointX="8" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblPayment" Width="1.5" PointX="36.75" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblPlanBadget" Width="1.5" PointX="21.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblPlusActual" Width="1.5" PointX="36.75" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblPMAsset" Width="1.5" PointX="36.75" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblPMSoftService" Width="1.5" PointX="37.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblPortfolio" Width="1.5" PointX="37.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblPPMSchedule" Width="1.5" PointX="0.75" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblPPMschedulesoftservice" Width="1.5" PointX="22.75" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblPPMTask" Width="1.5" PointX="3" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblPredictiveType" Width="1.5" PointX="30.75" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblPrefixesMaster" Width="1.5" PointX="38.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblProgram" Width="1.5" PointX="17.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblPurchaseOrderList" Width="1.5" PointX="12.5" PointY="60.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblPurchaseRequisition" Width="1.5" PointX="10.25" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblQuickLink" Width="1.5" PointX="12.25" PointY="58.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblRealTimeBooking" Width="1.5" PointX="4.75" PointY="39.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblReortInventoryTemplate" Width="1.5" PointX="38.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblReportDataLogger" Width="1.5" PointX="38.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblReportPPMSchedule" Width="1.5" PointX="18.75" PointY="39.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblReportShiftSchedule" Width="1.5" PointX="38.75" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblReportSoftServicesPPM" Width="1.5" PointX="38.75" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblReportWorkForceAttacnance" Width="1.5" PointX="38.75" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblReportWorkForceList" Width="1.5" PointX="32.75" PointY="39.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblRequestDescription" Width="1.5" PointX="34.75" PointY="39.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblRequestTypeApprover" Width="1.5" PointX="25" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblResetTotalizationRunHour" Width="1.5" PointX="36.75" PointY="39.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblResourceMakeModel" Width="1.5" PointX="18.5" PointY="65" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblRoom" Width="1.5" PointX="15.5" PointY="55.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblRoomBookingHistory" Width="1.5" PointX="25" PointY="63.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblRoomBookingMaster" Width="1.5" PointX="22.75" PointY="62.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblRoomRecurringBooking" Width="1.5" PointX="25" PointY="65.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblRoomType" Width="1.5" PointX="5.75" PointY="46.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblRunHour" Width="1.5" PointX="38.75" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblServiceReport" Width="1.5" PointX="7.5" PointY="49.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblServiceReportComponentsUsed" Width="1.5" PointX="39.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblServiceReportFilePath" Width="1.5" PointX="39.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblServiceReportPart" Width="1.5" PointX="39.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblServiceReportWorkForceTime" Width="1.5" PointX="24.75" PointY="40.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblServiceRequest" Width="1.5" PointX="6.5" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblServiceRequestImage" Width="1.5" PointX="26.75" PointY="40.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblServiceRequestMappedAsset" Width="1.5" PointX="40.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblServiceRequestResource" Width="1.5" PointX="40.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblServiceRequestStatu" Width="1.5" PointX="40.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.TblServiceState" Width="1.5" PointX="40.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblServiceStateUserRoleMapping" Width="1.5" PointX="40.75" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblServiceStatusMaster" Width="1.5" PointX="40.75" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblServiceType" Width="1.5" PointX="40.75" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblSeverity" Width="1.5" PointX="28.75" PointY="41.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblShiftException" Width="1.5" PointX="16.25" PointY="42" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblShiftRostering" Width="1.5" PointX="16.25" PointY="52" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblShift" Width="1.5" PointX="14" PointY="36.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblSkill" Width="1.5" PointX="17.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblSLA" Width="1.5" PointX="10.75" PointY="70.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblSLACategoryType" Width="1.5" PointX="13" PointY="86.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblSLAEscalation" Width="1.5" PointX="13" PointY="69.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblSmsStatu" Width="1.5" PointX="40.75" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblSoftservicetoMaitenanceteamMapping" Width="1.5" PointX="40.75" PointY="35.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblStatutoryCompliance" Width="1.5" PointX="40.75" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblStatutoryComplianceEmailStatu" Width="1.5" PointX="38.75" PointY="41.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblStockDetail" Width="1.5" PointX="40.75" PointY="41.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblStore" Width="1.5" PointX="16.25" PointY="65" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblTaskAssetmaintenance" Width="1.5" PointX="41.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblTaskSoftservice" Width="1.5" PointX="25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblTimeSheet" Width="1.5" PointX="41.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblUnit" Width="1.5" PointX="13" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblUnitOfMeasure" Width="1.5" PointX="34.75" PointY="42.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblUnitOfPartType" Width="1.5" PointX="5.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblUserLoginInfo" Width="1.5" PointX="10" PointY="57" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblUserRole" Width="1.5" PointX="7.75" PointY="63" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblUserRolesRights_Access" Width="1.5" PointX="10" PointY="66.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVendorComparison" Width="1.5" PointX="42.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVendorComparisonMain" Width="1.5" PointX="42.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVendorMasterGeneral" Width="1.5" PointX="8.75" PointY="38.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVendorQualificationLevelName" Width="1.5" PointX="12.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVendor" Width="1.5" PointX="0.75" PointY="43.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_GateReceiptNumber" Width="1.5" PointX="10.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_GRN_ComponentQuantity" Width="1.5" PointX="12.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_GRN_PartQuantity" Width="1.5" PointX="12.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_POContract" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_PurchaseRequisitionForm" Width="1.5" PointX="42.75" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_RFP_ForService" Width="1.5" PointX="16.75" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_RFPforComponents" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_RFPforManpower" Width="1.5" PointX="20" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_RFPforManpower_Main" Width="1.5" PointX="42.75" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_RFPforManpower_VendorSelection" Width="1.5" PointX="24.75" PointY="43.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_RFPforParts" Width="1.5" PointX="15.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_RFPforPartsComponentMain" Width="1.5" PointX="42.75" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_RFPforProjectWork" Width="1.5" PointX="42.75" PointY="30.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_RFPforProjectWork_VendorSelection" Width="1.5" PointX="30.75" PointY="43.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_RFPforServiceAssets" Width="1.5" PointX="19" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_TaxMaster" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_VComp_VendorSelection" Width="1.5" PointX="20.25" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_VendorComparison" Width="1.5" PointX="18" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_VendorSelectionFoRFP" Width="1.5" PointX="11" PointY="77.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVM_VendorSelectionForRFP_PartsComponent" Width="1.5" PointX="42.75" PointY="34.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVMRequestForPurchase" Width="1.5" PointX="15.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblVMSupplierPart" Width="1.5" PointX="42.75" PointY="37.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblWeatherData" Width="1.5" PointX="42.75" PointY="40.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblWeeklyLogger" Width="1.5" PointX="42.75" PointY="43.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblWorkForce" Width="1.5" PointX="11" PointY="45.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblWorkForceToMaintenanceTeamMapping" Width="1.5" PointX="13.25" PointY="41.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblWorkOrderMaintenanceTask" Width="1.5" PointX="43.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblWorkOrderResource" Width="1.5" PointX="43.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblWorkOrder" Width="1.5" PointX="8.75" PointY="30.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblXmlForBookedRoom" Width="1.5" PointX="26.75" PointY="44.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.testTable" Width="1.5" PointX="36.75" PointY="44.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.Unit_type" Width="1.5" PointX="10.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.Admin_Features_Activation" Width="1.5" PointX="44.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.BuildingImage" Width="1.5" PointX="44.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.LogoImage" Width="1.5" PointX="44.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblLanguage" Width="1.5" PointX="44.75" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblPointSlouse" Width="1.5" PointX="44.75" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFIRMDBModel.tblUnitOfMeasureCopySetup" Width="1.5" PointX="44.75" PointY="33.125" IsExpanded="true" />
+        <AssociationConnector Association="EFIRMDBModel.FK_From_Unit_Unit_type" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_LocationMaster_tblFacility" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_ObjectList_Devices" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tbl_LogParameter_tblAssetType" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tbl_TotalizationHistory_tbl_ObjectList" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tbl_RunHrsOnOffTime_tblAssets" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tbl_TotalizationHistory_tblAssets" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tbl_TotalizationLastFetchStatus_tblAssets" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tbl_TotalizationStatus_tblAssets" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblAccountBalance_tblOccupant" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblAccountHead_tblGLCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblAccountSubHead_tblAccountHead" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblPlanBadget_tblAccountHead" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblPlanBadget_tblAccountSubHead" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblApproverManagersList_tblHelpDeskBusinessRules" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblArea_tblBuilding" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblArea_tblFacility" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblKeys_tblArea" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblRoom_tblArea" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblAssetComponents_tblAssetComponentType" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_GRN_ComponentQuantity_tblAssetComponents" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_RFPforComponents_tblAssetComponents" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblAssetComponentType_tblAssetComponentType1" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_GRN_ComponentQuantity_tblAssetComponentType" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_RFPforComponents_tblAssetComponentType" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblAssetType_tblAssetGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblHelpDeskRedirectFlow_tblAssetGroup1" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblHelpDeskChangeRTAssets_tblAssets" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblHelpDeskRedirectAssets_tblAssets" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblServiceReport_tblAssets" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblAssetType_tblAssetType" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblComponentTypeAssets_tblAssetType1" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblHelpDeskRedirectFlow_tblAssetGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblKPI_tblAssetType1" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblMaintenanceActivityAssets_tblAssetType" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblServiceReport_tblAssetType" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblAssetTypeNQualificationLevel_tblVendorQualificationLevelName" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblAttachedResourcesRoomWise_tblResourceMakeModel" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblAttachedResourcesRoomWise_tblRoom" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblBookingRates_tblRoom" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblAnnouncementMngt_tblBuilding" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblBuilding_tblFacility" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblBuilding_tblFloor" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblKeys_tblBuilding" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblPurchaseRequisition_tblBuilding" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblRoom_tblBuilding" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblServiceReport_tblBuilding" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblCourse_tblProgram" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblModule_tblCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK__tblServic__Custo__40F9A68C" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblCustomerFeedbackUserRoleMapping_tblCustomerFeedback" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblTaskSoftservice_tblDefineSoftservice" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblWorkForce_tblDesignation" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblDocument_tblDocumentType" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblAnnouncementMngt_tblFacility" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblFBBookingSlots_tblFacility" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblInventoryIssueReturn_tblFacility" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblKeys_tblFacility" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblOccupant_tblFacility" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblPurchaseRequisition_tblFacility" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblRoom_tblFacility" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblServiceReport_tblServiceReport" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblUserLoginInfo_tblFacility" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblWorkForce_tblFacility" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblAnnouncementMngt_tblFloor" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblAnnouncementMngt_tblRoom" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblFBAnnouncementMngt_tblUserLoginInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblFBAttachResourcesRoomWise_tblResourceMakeModel" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblFBAttachResourcesRoomWise_tblRoom" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblFBBookingSlots_tblRoomType" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblFBInvoiceDetails_tblOccupant" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblFBRoomDetails_tblRoom" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblFBRoomDetailsWiseRates_tblFBRoomDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblPlanBadget_tblFiscalYear" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblKeys_tblFloor" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblRoom_tblLocation" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblServiceReport_tblFloor" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblForms_tblMainModule" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblRequestTypeApprover_tblHelpDeskBusinessRules" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblHelpDeskChangeRTAssets_tblHelpDeskChangeRTDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblHelpDeskChangeRTDetails_tblServiceRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblHelpDeskChangeRTResources_tblHelpDeskChangeRTDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblHelpDeskChangeRTResources_tblWorkForce" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblHelpDeskRedirectAssets_tblHelpDeskRedirectFlow" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblHelpDeskRedirectFlow_tblWorkOrders" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblHelpDeskRedirectResources_tblHelpDeskRedirectFlow" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblHelpDeskRedirectResources_tblWorkForce" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblInventoryIssueReturn_tblInventoryIssueReturn" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblInventoryIssueReturn_tblPurchsaseRequisition" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblInventoryIssueReturn_tblStore" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblIssueReturnItemsList_tblInventoryIssueReturn" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblIssueReturnItemsListComponents_tblInventoryIssueReturn" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblInventoryParts_tblParts" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblInventoryParts_tblStore" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblKeys_tblRoom" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblMaintenanceActivityAssets_tblMaintenanceActivites" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblMaintenanceTaskActivities_tblMaintenanceActivites" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblMaintenanceTaskActivities_tblMaintenanceTask" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblPPMTask_tblMaintenanceTask" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblWorkForceToMaintenanceTeamMapping_tblMaintenanceTeams" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblModule_tblProgram" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblMRMailroomInbound_tblMRCourierServiceProvider" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblMRMailroomOutbound_tblMRCourierServiceProvider" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblMRMailroomInbound_tblMRModeOfDelivery" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblMRMailroomInbound_tblWorkForce" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblMRMailroomOutbound_tblMRModeOfDelivery" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblMRMailroomOutbound_tblWorkForce" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblRoomBookingMaster_tblUserLoginInfo1" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblParts_tblPartsType" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_GRN_PartQuantity_tblParts" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_RFPforParts_tblParts" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblPartsAssets_tblPartsType" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblPartsType_tblUnitOfPartType" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_GRN_PartQuantity_tblPartsType" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_RFPforParts_tblPartsType" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblPPMTask_tblPPMSchedule" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblPurchaseOrderList_tblPurchaseRequisition" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblPurchaseRequisition_tblPurchaseRequisition" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblQuickLinks_tblUserLoginInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblRoom_tblRoomType" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblRoomBookingMaster_tblRoom" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblRoomBookingHistory_tblRoomBookingMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblRoomBookingMaster_tblUserLoginInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblRoomRecurringBooking_tblRoomBookingMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblWorkOrders_tblServiceRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblShiftException_tblShifts" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblShiftException_tblWorkForce" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblShiftRostering_tblShifts" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblShiftRostering_tblWorkForce" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_RFPforManpower_tblSkills" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblSLAEscalation_tblSLA" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblSLAtoAssettypes_tblSLA" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblSLAEscalation_tblUserRole" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblUnit_Unit_type" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblUserLoginInfo_tblUserRole" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblUserRolesRights_Access_tblUserRole" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_VComp_VendorSelection_tblVendorMasterGeneral" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_VendorSelectionFoRFP_tblVendorMasterGeneral1" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblWorkForce_tblVendorMasterGeneral" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVendorQualificationLevelName_tblVendorQualificationLevelName" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_GRN_ComponentQuantity_tblVM_GateReceiptNumber" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_GRN_PartQuantity_tblVM_GateReceiptNumber" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_POContract_tblVM_POContract" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_POContract_tblVM_TaxMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_POContract_tblVM_TaxMaster1" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_POContract_tblVMRequestForPurchase" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_RFPforServiceAssets_tblVM_RFP_ForService" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_VComp_VendorSelection_tblVM_VendorComparison" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblVM_VendorComparison_tblVMRequestForPurchase" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblWorkForce_tblWorkForce" ManuallyRouted="false" />
+        <AssociationConnector Association="EFIRMDBModel.FK_tblWorkForceToMaintenanceTeamMapping_tblWorkForce" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

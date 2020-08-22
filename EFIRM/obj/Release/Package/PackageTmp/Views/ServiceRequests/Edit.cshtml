@@ -1,0 +1,490 @@
+﻿@model EFIRM.Models.ServiceRequestsModels
+
+@{
+	/**/
+
+	ViewBag.Title = "Service Request";
+	Layout = "~/Views/Shared/_DashBoardLayout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "ServiceRequests", FormMethod.Post, new { encType = "multipart/form-data" }))
+{
+
+	@Html.AntiForgeryToken()
+	@Html.HiddenFor(model => model.Id)
+
+	<div class="form-horizontal">
+		<h4>Service Request</h4>
+		<hr />
+		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+		<div class="row">
+			<div class="form-group col-md-2">
+				@Html.EditorFor(model => model.ServiceRequestNumber, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Style = "margin-top:-10px;background-color:none" } })
+
+			</div>
+			@*<div class="form-group col-md-4" style="margin-top:-15px;">
+					@if (Model.Status == "Open")
+					{
+						<a class="btn btn-success" href="~/ServiceRequests/AcknowledgeServiceRequest?ServiceRequestNumber=@Model.ServiceRequestNumber">
+							Acknowledge
+						</a>
+					}
+					else
+					{ <a class="btn btn-success" href="#" style="pointer-events: none;">
+							Acknowledged
+						</a>
+					}
+				</div>*@
+
+		</div>
+		<div class="row">
+			<div class="form-group col-md-6">
+				@Html.Label("Occupant", htmlAttributes: new { @class = "control-label col-md-4" })
+				<div class="col-md-10">
+					@Html.DropDownList("OccupantName", (IEnumerable<SelectListItem>)ViewBag.Occupants, "Please Select", new { @class = "form-control", required = "required" })
+					@Html.ValidationMessageFor(model => model.OccupantName, "", new { @class = "text-danger" })
+				</div>
+			</div>
+			<div class="form-group col-md-6">
+				@Html.Label("Name", htmlAttributes: new { @class = "control-label col-md-6" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.ContactName, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+					@Html.ValidationMessageFor(model => model.ContactName, "", new { @class = "text-danger" })
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-6">
+				@Html.Label("Contact", htmlAttributes: new { @class = "control-label col-md-6" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.ContactNumber, new { htmlAttributes = new { @class = "form-control", required = "required", @type = "number", @max = 9999999999999 } })
+					@Html.ValidationMessageFor(model => model.ContactNumber, "", new { @class = "text-danger" })
+				</div>
+			</div>
+
+			<div class="form-group col-md-6">
+				@Html.Label("Email", htmlAttributes: new { @class = "control-label col-md-6" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.ContactEmail, new { htmlAttributes = new { @class = "form-control" } })
+					@Html.ValidationMessageFor(model => model.ContactEmail, "", new { @class = "text-danger" })
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-6">
+				@Html.Label("Facility", htmlAttributes: new { @class = "control-label col-md-6" })
+				<div class="col-md-10">
+					@Html.DropDownList("FacilityId", (IEnumerable<SelectListItem>)ViewBag.Facilities, "Please Select", new { @class = "form-control", required = "required" })
+					@Html.ValidationMessageFor(model => model.FacilityId, "", new { @class = "text-danger" })
+				</div>
+			</div>
+
+			<div class="form-group col-md-6">
+				@Html.Label("Building", htmlAttributes: new { @class = "control-label col-md-6" })
+				<div class="col-md-10">
+					@Html.DropDownList("BuildingId", new SelectList(Enumerable.Empty<SelectListItem>()), new { @class = "form-control", required = "required" })
+					@Html.ValidationMessageFor(model => model.BuildingId, "", new { @class = "text-danger" })
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-6">
+				@Html.Label("Floor", htmlAttributes: new { @class = "control-label col-md-6" })
+				<div class="col-md-10">
+					@Html.DropDownList("FloorId", new SelectList(Enumerable.Empty<SelectListItem>()), new { @class = "form-control" })
+					@Html.ValidationMessageFor(model => model.FloorId, "", new { @class = "text-danger" })
+				</div>
+			</div>
+
+			<div class="form-group col-md-6">
+				<div class="row">
+					<div class="form-group col-md-5">
+						@Html.Label("Area", htmlAttributes: new { @class = "control-label col-md-4" })
+						<div class="col-md-12">
+							@Html.DropDownList("AreaId", new SelectList(Enumerable.Empty<SelectListItem>()), new { @class = "form-control" })
+							@Html.ValidationMessageFor(model => model.AreaId, "", new { @class = "text-danger" })
+						</div>
+					</div>
+					<div class="form-group col-md-6">
+						<label class="control-label col-md-4">
+							@Html.CheckBox("AddArea")&nbsp;Add
+						</label>
+						<div class="col-md-11">
+							@Html.TextBoxFor(m => m.Area, new { @class = "control-label", @style = "display:none;height:35px;" })
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-6">
+
+
+				<div class="row">
+					<div class="form-group col-md-5">
+						@Html.Label("Room", htmlAttributes: new { @class = "control-label col-md-6" })
+						<div class="col-md-12">
+							@Html.DropDownList("RoomId", new SelectList(Enumerable.Empty<SelectListItem>()), new { @class = "form-control" })
+							@Html.ValidationMessageFor(model => model.RoomId, "", new { @class = "text-danger" })
+						</div>
+					</div>
+					<div class="form-group col-md-6">
+						<label class="control-label col-md-4">
+							@Html.CheckBox("AddRoom")&nbsp;Add
+						</label>
+						<div class="col-md-11">
+							@Html.TextBoxFor(m => m.Room, new { @class = "control-label", @style = "display:none;height:35px;" })
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group col-md-6">
+				@Html.Label("Request Type", htmlAttributes: new { @class = "control-label col-md-6" })
+				<div class="col-md-10">
+					@Html.DropDownList("RequestType", (IEnumerable<SelectListItem>)ViewBag.RequestTypes, "Please Select", new { @class = "form-control", required = "required" })
+					@Html.ValidationMessageFor(model => model.RequestType, "", new { @class = "text-danger" })
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-6">
+				@Html.Label("Group", htmlAttributes: new { @class = "control-label col-md-4" })
+				<div class="col-md-10">
+					@Html.DropDownList("AssetGroupId", (IEnumerable<SelectListItem>)ViewBag.Groups, "Please Select", new { @class = "form-control", required = "required" })
+					@Html.ValidationMessageFor(model => model.AssetGroupId, "", new { @class = "text-danger" })
+				</div>
+			</div>
+
+			<div class="form-group col-md-6">
+				@Html.Label("Category Type", htmlAttributes: new { @class = "control-label col-md-6" })
+				<div class="col-md-10">
+					@Html.DropDownList("CategoryId", new SelectList(Enumerable.Empty<SelectListItem>()), "Please Select", new { @class = "form-control", required = "required" })
+					@Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+				</div>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="form-group col-md-6">
+				@Html.Label("Request Description", htmlAttributes: new { @class = "control-label col-md-6" })
+				<div class="col-md-10 col-sm-6">
+					<input class="form-control list" style="width:100%" list="browsers" value="@Model.RequestDescription"
+						   id="RequestDescription" name="RequestDescription">
+					<datalist id="browsers"></datalist>
+				</div>
+
+			</div>
+			<div class="form-group col-md-6">
+				@if (Convert.ToString(Session["UserRole"]).ToLower().Contains("admin"))
+				{
+					@Html.Label("Resource", htmlAttributes: new { @class = "control-label col-md-6" })
+					<div class="col-md-10">
+						@Html.DropDownList("ResourceID", new SelectList(Enumerable.Empty<SelectListItem>()), "", new { @class = "form-control", @multiple = "multiple" })
+					</div>
+				}
+
+				@Html.Label("Choose File", htmlAttributes: new { @class = "control-label col-md-6" })
+				<div class="col-md-10">
+					@Html.TextBoxFor(m => m.Files, new { type = "file", name = "Files", multiple = "multiple" })<br /><br />
+
+					<table style="border:1px solid #d2d2d2">
+						<tr>
+							<th>Uploaded Files</th>
+							<th>&nbsp</th>
+						</tr>
+						@for (var i = 0; i < Model.FilesUploaded.Count; i++)
+						{
+						<tr>
+							<td>@Model.FilesUploaded[i].ToString() </td>
+							@if (Convert.ToString(Model.FilesUploaded[i]).Contains("SREP"))
+							{
+								<td>@Html.ActionLink("Download", "Download2", "Base", new { ImageName = @Model.FilesUploaded[i].ToString() }, null) </td>
+							}
+							else
+							{
+								<td>@Html.ActionLink("Download", "Download", "Base", new { ImageName = @Model.FilesUploaded[i].ToString() }, null) </td>
+
+							}
+						</tr>
+						}
+					</table>
+				</div>
+			</div>
+
+		</div>
+		@if (Convert.ToString(Session["UserRole"]).ToLower().Contains("admin"))
+		{
+			<div class="row">
+				<div class="form-group col-md-6">
+					@Html.Label("Lead Resource", htmlAttributes: new { @class = "control-label col-md-6" })
+					<div class="col-md-10">
+						@Html.DropDownList("ISeniorTechId", new SelectList(Enumerable.Empty<SelectListItem>()), "", new { @class = "form-control" })
+						@Html.ValidationMessageFor(model => model.ISeniorTechId, "", new { @class = "text-danger" })
+					</div>
+				</div>
+				<div class="form-group col-md-6">
+					@Html.LabelFor(model => model.Severity, htmlAttributes: new { @class = "control-label col-md-6" })
+					<div class="col-md-10">
+						@Html.DropDownList("Severity", (IEnumerable<SelectListItem>)ViewBag.Severities, "Please Select", new { @class = "form-control" })
+						@Html.ValidationMessageFor(model => model.Severity, "", new { @class = "text-danger" })
+					</div>
+				</div>
+			</div>
+		}
+
+		<div class="form-group">
+			<div class="col-md-4">
+				<a class="btn btn-success" href="~/ServiceRequests/Index">
+					Back To List
+				</a>
+				<a class="btn btn-success" href="~/ServiceRequests/Edit?ServiceRequestNumber=@Model.ServiceRequestNumber">
+					Clear
+				</a>
+				<input type="submit" value="Update" class="btn btn-success" />
+			</div>
+		</div>
+	</div>
+}
+<script type="text/javascript">
+
+	var DescriptionList = '@ViewBag.RequestDescriptionDropDown';
+	var BuildingId = '@Model.BuildingId';
+	var FloorId = '@Model.FloorId';
+	var AreaId = '@Model.AreaId';
+	var RoomId = '@Model.RoomId';
+	var CategoryId = '@Model.CategoryId';
+	var ISeniorTechId = '@Model.ISeniorTechId';
+	var ResourceId = '@ViewBag.ResourceListID';
+
+	ResourceId = ResourceId.substring(1, ResourceId.length - 1)
+	var ResourceArray = ResourceId.split(',');
+
+	DescriptionList = DescriptionList.replace(/&quot;/g, '\"');
+	DescriptionList = DescriptionList.substring(1, DescriptionList.length - 1)
+	var DescriptionArray = DescriptionList.split(',');
+
+	$('#AddArea').click(function () {
+		if (!$(this).is(':checked')) {
+			$('#Area').hide().prop('required', false);
+			$('#Area').val('');
+			$('#Area').removeAttr('required');
+		}
+		else {
+			$('#Area').show();
+			$('#Area').prop('required', true);
+		}
+	});
+
+	$('#AddRoom').click(function () {
+		if (!$(this).is(':checked')) {
+			$('#Room').hide().prop('required', false);
+			$('#Room').val('');
+			$('#Room').removeAttr('required');
+		}
+		else {
+			$('#Room').show();
+			$('#Room').prop('required', true);
+		}
+	});
+
+	$("#FacilityId").change(function () {
+		if ($("#FacilityId").val() != "") {
+
+			$.ajax({
+				url: "/Base/GetBuildingsForFacility?FacilityId=" + $("#FacilityId").val(),
+				type: "GET",
+				contentType: "application/json; charset=utf-8",
+				datatype: JSON,
+				success: function (result) {
+					$("#BuildingId").empty();
+					$(result).each(function () {
+						$("#BuildingId").append($("<option></option>").val(this.Value).html(this.Text));
+					});
+					if (BuildingId === '' || BuildingId === "") {
+						$("#BuildingId").val($("#BuildingId option:first").val());
+					}
+					else {
+						$("#BuildingId").val(BuildingId);
+					}
+					$('#BuildingId').trigger('change');
+
+
+				},
+				error: function (data) {
+
+				}
+			});
+		}
+	});
+
+	$("#BuildingId").change(function () {
+		if ($("#BuildingId").val() != "") {
+
+			$.ajax({
+				url: "/Base/GetFloorForBuilding?BuildingId=" + $("#BuildingId").val(),
+				type: "GET",
+				contentType: "application/json; charset=utf-8",
+				datatype: JSON,
+				success: function (result) {
+					$("#FloorId").empty();
+					$("#FloorId").append($("<option></option>").val("").html("Please Select"));
+					$(result).each(function () {
+						$("#FloorId").append($("<option></option>").val(this.Value).html(this.Text));
+					});
+					if (FloorId === '' || FloorId === "") {
+						//$("#FloorId").val($("#FloorId option:first").val());
+					}
+					else {
+						$("#FloorId").val(FloorId);
+					}
+					$('#FloorId').trigger('change');
+				},
+				error: function (data) {
+
+				}
+			});
+
+		}
+	});
+
+	$("#FloorId").change(function () {
+		if ($("#FloorId").val() != "") {
+
+			$.ajax({
+				url: "/Base/GetAreaForBuilding?FloorId=" + $("#FloorId").val(),
+				type: "GET",
+				contentType: "application/json; charset=utf-8",
+				datatype: JSON,
+				success: function (result) {
+					$("#AreaId").empty();
+					$("#AreaId").append($("<option></option>").val("").html("Please Select"));
+					$(result).each(function () {
+						$("#AreaId").append($("<option></option>").val(this.Value).html(this.Text));
+					});
+					if (AreaId === '' || AreaId === "") {
+						//$("#AreaId").val($("#AreaId option:first").val());
+					}
+					else {
+						$("#AreaId").val(AreaId);
+					}
+					$('#AreaId').trigger('change');
+				},
+				error: function (data) {
+
+				}
+			});
+		}
+	});
+
+	$("#AreaId").change(function () {
+		if ($("#AreaId").val() != "" && $("#AreaId").val() !== null) {
+
+			$.ajax({
+				url: "/Base/GetRoomForArea?AreaId=" + $("#AreaId").val(),
+				type: "GET",
+				contentType: "application/json; charset=utf-8",
+				datatype: JSON,
+				success: function (result) {
+					$("#RoomId").empty();
+					$("#RoomId").append($("<option></option>").val("").html("Please Select"));
+					$(result).each(function () {
+						$("#RoomId").append($("<option></option>").val(this.Value).html(this.Text));
+					});
+					if (RoomId === '' || RoomId === "") {
+						//$("#RoomId").val($("#RoomId option:first").val());
+					}
+					else {
+						$("#RoomId").val(RoomId);
+					}
+					$('#RoomId').trigger('change');
+				},
+				error: function (data) {
+
+				}
+			});
+		}
+	});
+
+	$("#AssetGroupId").change(function () {
+		if ($("#AssetGroupId").val() != "") {
+
+			$.ajax({
+				url: "/Base/GetCategoryForGroup?AssetGroupId=" + $("#AssetGroupId").val(),
+				type: "GET",
+				contentType: "application/json; charset=utf-8",
+				datatype: JSON,
+				success: function (result) {
+					$("#CategoryId").empty();
+					$(result).each(function () {
+						$("#CategoryId").append($("<option></option>").val(this.Value).html(this.Text));
+					});
+					if (CategoryId === '' || CategoryId === "") {
+						$("#CategoryId").val($("#CategoryId option:first").val());
+					}
+					else {
+						$("#CategoryId").val(CategoryId);
+					}
+					$('#CategoryId').trigger('change');
+				},
+				error: function (data) {
+
+				}
+			});
+		}
+	});
+
+	$("#CategoryId").change(function () {
+		if ($("#CategoryId").val() != "") {
+
+			$.ajax({
+				url: "/Base/GetResourceForCategory?CategoryId=" + $("#CategoryId").val(),
+				type: "GET",
+				contentType: "application/json; charset=utf-8",
+				datatype: JSON,
+				success: function (result) {
+					$("#ResourceID").empty();
+					$(result).each(function () {
+						$("#ResourceID").append($("<option></option>").val(this.Value).html(this.Text));
+					});
+
+					$('#ResourceID').val(ResourceArray);
+					$('#ResourceID').trigger('change');
+					if (ISeniorTechId !== '' && ISeniorTechId !== "") {
+						$("#ISeniorTechId").val(ISeniorTechId);
+					}
+				},
+				error: function (data) {
+
+				}
+			});
+		}
+	});
+
+	$("#ResourceID").change(function () {
+		$("#ISeniorTechId").empty();
+		$("#ResourceID :selected").each(function () {
+			$("#ISeniorTechId").append($("<option></option>").val(this.value).html(this.text));
+		});
+	});
+
+	$(document).ready(function () {
+
+		$('label').css("font-weight", "Bold");
+
+		$("#browsers").empty();
+
+		$.each(DescriptionArray, function (value) {
+
+			$("#browsers").append($("<option></option>").val(DescriptionArray[value]));
+		})
+
+		$('#FacilityId').trigger('change');
+
+		$('#AssetGroupId').trigger('change');
+
+	});
+
+
+</script>  

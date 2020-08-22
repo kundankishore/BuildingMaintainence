@@ -1,0 +1,544 @@
+﻿
+@{
+	ViewBag.Title = "KPI";
+	Layout = "~/Views/Shared/_DashBoardLayout.cshtml";
+}
+
+<script src="~/HighCharts/highcharts.js"></script>
+<script src="~/HighCharts/highcharts-3d.js"></script>
+<script src="~/HighCharts/modules/exporting.js"></script>
+<script src="~/HighCharts/modules/export-data.js"></script>
+
+@using (Html.BeginForm("KPI", "Dashboard", FormMethod.Post))
+{
+	<div class="form-horizontal">
+		<div class="row">
+			<div class="col-md-5">
+				<label class="m-b-none" style="font-size: 24px; font-weight: bold; color: #000">
+					KPI DASHBOARD
+				</label>
+			</div>
+			<div class="col-md-2">
+				<label style="font-weight: bold; color: #000;font-size:medium">From Date</label>
+				<input type="date" name="startDate" id="from_date" pattern="dd/mm/yyyy">
+			</div>
+			<div class="col-md-2">
+				<label style="font-weight: bold; color: #000;font-size:medium">To Date</label>
+				<input type="date" name="endDate" id="to_date" pattern="dd/mm/yyyy">
+			</div>
+			<div class="col-md-3" style="margin-top:20px;">
+				<input class="btn btn-primary" type="submit" value="Search" id="btnSubmit" />
+			</div>
+		</div>
+	</div>
+}
+<br />
+<main class="main-content p-5" role="main">
+
+	<div class="row">
+
+		<div id="container1" class="col-md-6"></div>
+
+
+		<div id="container2" class="col-md-6"></div>
+
+	</div>
+	<br />
+
+	<div class="row">
+
+		<div id="container4" class="col-md-4"></div>
+
+		<div id="container5" class="col-md-4"></div>
+
+		<div id="container6" class="col-md-4"></div>
+
+	</div>
+	<br />
+
+	<div class="row">
+		<div id="container3" class="col-md-6"></div>
+	</div>
+	<br />
+
+	<div class="row" style="display:none">
+		<div id="container7" class="col-md-4"></div>
+		<div id="container8" class="col-md-4"></div>
+		<div id="container9" class="col-md-4"></div>
+	</div>
+
+	<br />
+</main>
+<script type="text/javascript">
+
+	$(document).ready(function () {
+		$('#KPI').addClass("active");
+	});
+
+	Highcharts.chart('container1', {
+		chart: {
+			type: 'column',
+			zoomType: 'xy',
+			options3d: {
+				enabled: true,
+				depth: 20,
+				true3d: false,
+				angle: 40,
+			}
+		},
+		title: {
+			text: 'Average Response and Rectification Time'
+		},
+		xAxis: [{
+			categories: [@Html.Raw(ViewData["workorder_categories"])],
+			crosshair: true
+		}],
+		yAxis: [{ // Primary yAxis
+			labels: {
+				format: '{value}',
+				style: {
+					color: Highcharts.getOptions().colors[1]
+				}
+			},
+			title: {
+				text: null
+
+			}
+		}, { // Secondary yAxis
+			title: {
+				text: null
+			},
+			labels: {
+				format: '{value}',
+				style: {
+					color: Highcharts.getOptions().colors[0]
+				}
+			},
+			opposite: true
+		}],
+		tooltip: {
+			shared: true
+		},
+		credits: {
+			enabled: false
+		},
+		legend: {
+			enabled: true,
+			align: 'center',
+			verticalAlign: 'bottom',
+			y: 0,
+			padding: 0,
+			itemMarginTop: 0,
+			itemMarginBottom: 0,
+			itemStyle: {
+				fontSize: '10px'
+			}
+		},
+		 series: [
+        @Html.Raw(ViewData["AverageResponseRectificationTime"])
+        ]
+	});
+
+	var chart2 = new Highcharts.Chart({
+		chart: {
+			renderTo: 'container2',
+			type: 'column',
+			zoomType: 'xy',
+			options3d: {
+				enabled: true,
+				depth: 20,
+				true3d: false,
+				angle: 40,
+			}
+		},
+		title: { text:'Average Response Time'},
+        xAxis: [{
+            categories: [@Html.Raw(ViewData["workorder_categories"])],
+            crosshair: true
+        }],
+        plotOptions: {
+            column: {
+                depth: 25
+            }
+        },
+        yAxis: [{ // Primary yAxis
+            labels: {
+                format: '{value}',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            },
+            title: {
+                text: null
+
+            }
+        }],
+        exporting: {
+            buttons: {
+                contextButton: {
+                    menuItems: [
+                        'printChart',
+                        'separator',
+                        'downloadPNG',
+                        'downloadJPEG',
+                        'downloadPDF',
+                        'downloadSVG',
+                        'separator',
+                        'downloadCSV',
+                        'downloadXLS'
+                    ]
+                }
+            }
+        },
+        tooltip: {
+            shared: true,
+            formatter: function () {
+                return this.points.reduce(function (s, point) {
+                    return s + '<br/>' + point.series.name + ': ' +
+                        point.y + ' avg. minutes';
+                }, '<b>' + this.x + '</b>');
+            }
+        },
+        credits: {
+            enabled: false
+		}
+		,
+		legend: {
+			enabled: true,
+			align: 'center',
+			verticalAlign: 'bottom',
+			y: 0,
+			padding: 0,
+			itemMarginTop: 0,
+			itemMarginBottom: 0,
+			itemStyle: {
+				fontSize: '10px'
+			}
+		},
+            series: [@Html.Raw(ViewData["AverageResponseTime"])]
+    });
+
+    var chart3 = new Highcharts.Chart({
+        chart: {
+			renderTo: 'container3',
+			type: 'column',
+			zoomType: 'xy',
+			options3d: {
+				enabled: true,
+				depth: 20,
+				true3d: false,
+				angle: 40,
+			}
+        },
+		title: {
+			text: 'Average Rectification Time'
+		},
+        xAxis: [{
+            categories: [@Html.Raw(ViewData["workorder_categories"])],
+            crosshair: true
+        }],
+        plotOptions: {
+            column: {
+                depth: 25
+            }
+        },
+        yAxis: [{ // Primary yAxis
+            labels: {
+                format: '{value}',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            },
+            title: {
+                text: null
+
+            }
+        }],
+        exporting: {
+            buttons: {
+                contextButton: {
+                    menuItems: [
+                        'printChart',
+                        'separator',
+                        'downloadPNG',
+                        'downloadJPEG',
+                        'downloadPDF',
+                        'downloadSVG',
+                        'separator',
+                        'downloadCSV',
+                        'downloadXLS'
+                    ]
+                }
+            }
+        },
+        tooltip: {
+            shared: true,
+            formatter: function () {
+                return this.points.reduce(function (s, point) {
+                    return s + '<br/>' + point.series.name + ': ' +
+                        point.y + ' avg. minutes';
+                }, '<b>' + this.x + '</b>');
+            }
+        },
+        credits: {
+            enabled: false
+        },
+            series: [@Html.Raw(ViewData["AverageRectifyTime"])]
+    });
+
+	Highcharts.chart('container4', {
+		chart: {
+			plotBackgroundColor: null,
+			plotBorderWidth: null,
+			plotShadow: false,
+			type: 'pie'
+		},
+		title: {
+			text: 'Response Time- Critical'
+		},
+
+		tooltip: {
+			pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		},
+		plotOptions: {
+			pie: {
+				allowPointSelect: true,
+				cursor: 'pointer',
+				dataLabels: {
+					enabled: false
+				},
+				showInLegend: true
+			}
+		},credits: {
+            enabled: false
+		},
+		series: [{
+			name: 'Critical',
+			colorByPoint: true,
+			data: [{
+				name: '>5',
+				y: parseFloat('@ViewData["ResponseTime_Critical1"]'),
+				color: '#d43f3a',
+				sliced: true,
+				selected: true
+			}, {
+				name: '<=5 (mins)',
+					y: parseFloat('@ViewData["ResponseTime_Critical2"]'),
+			}]
+		}]
+	});
+
+	Highcharts.chart('container5', {
+		chart: {
+			plotBackgroundColor: null,
+			plotBorderWidth: null,
+			plotShadow: false,
+			type: 'pie'
+		},
+		title: {
+			text: 'Response Time- Urgent'
+		},
+
+		tooltip: {
+			pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		},
+		plotOptions: {
+			pie: {
+				allowPointSelect: true,
+				cursor: 'pointer',
+				dataLabels: {
+					enabled: false
+				},
+				showInLegend: true
+			}
+		},credits: {
+            enabled: false
+		},
+		series: [{
+			name: 'Critical',
+			colorByPoint: true,
+			data: [{
+				name: '>10',
+				y: parseFloat('@ViewData["ResponseTime_Urgent1"]'),
+				color: '#d43f3a',
+				sliced: true,
+				selected: true
+			}, {
+				name: '<=10 (mins)',
+					y: parseFloat('@ViewData["ResponseTime_Urgent2"]'),
+			}]
+		}]
+	});
+
+	Highcharts.chart('container6', {
+		chart: {
+			plotBackgroundColor: null,
+			plotBorderWidth: null,
+			plotShadow: false,
+			type: 'pie'
+		},
+		title: {
+			text: 'Response Time - Normal'
+		},
+
+		tooltip: {
+			pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		},
+		plotOptions: {
+			pie: {
+				allowPointSelect: true,
+				cursor: 'pointer',
+				dataLabels: {
+					enabled: false
+				},
+				showInLegend: true
+			}
+		},credits: {
+            enabled: false
+		},
+		series: [{
+			name: 'Critical',
+			colorByPoint: true,
+			data: [{
+				name: '>10',
+				y: parseFloat('@ViewData["ResponseTime_Normal1"]'),
+				color: '#d43f3a',
+				sliced: true,
+				selected: true
+			}, {
+				name: '<=10 (mins)',
+					y: parseFloat('@ViewData["ResponseTime_Normal2"]'),
+			}]
+		}]
+	});
+
+
+	Highcharts.chart('container7', {
+		chart: {
+			plotBackgroundColor: null,
+			plotBorderWidth: null,
+			plotShadow: false,
+			type: 'pie'
+		},
+		title: {
+			text: 'Rectification Time- Critical'
+		},
+
+		tooltip: {
+			pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		},
+		plotOptions: {
+			pie: {
+				allowPointSelect: true,
+				cursor: 'pointer',
+				dataLabels: {
+					enabled: false
+				},
+				showInLegend: true
+			}
+		},credits: {
+            enabled: false
+		},
+		series: [{
+			name: 'Critical',
+			colorByPoint: true,
+			data: [{
+				name: '>30',
+				y: parseFloat('@ViewData["RectifyTime_Critical1"]'),
+				color: '#d43f3a',
+				sliced: true,
+				selected: true
+			}, {
+				name: '<=30 (mins)',
+					y: parseFloat('@ViewData["RectifyTime_Critical2"]'),
+			}]
+		}]
+	});
+
+
+      	Highcharts.chart('container8', {
+		chart: {
+			plotBackgroundColor: null,
+			plotBorderWidth: null,
+			plotShadow: false,
+			type: 'pie'
+		},
+		title: {
+			text: 'Rectification Time- Urgent'
+		},
+
+		tooltip: {
+			pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		},
+		plotOptions: {
+			pie: {
+				allowPointSelect: true,
+				cursor: 'pointer',
+				dataLabels: {
+					enabled: false
+				},
+				showInLegend: true
+			}
+		},credits: {
+            enabled: false
+		},
+		series: [{
+			name: 'Critical',
+			colorByPoint: true,
+			data: [{
+				name: '>120',
+				y: parseFloat('@ViewData["RectifyTime_Urgent1"]'),
+				color: '#d43f3a',
+				sliced: true,
+				selected: true
+			}, {
+				name: '<=120 (mins)',
+					y: parseFloat('@ViewData["RectifyTime_Urgent2"]'),
+			}]
+		}]
+	});
+
+   Highcharts.chart('container9', {
+		chart: {
+			plotBackgroundColor: null,
+			plotBorderWidth: null,
+			plotShadow: false,
+			type: 'pie'
+		},
+		title: {
+			text: 'Rectification Time- Normal'
+		},
+
+		tooltip: {
+			pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		},
+		plotOptions: {
+			pie: {
+				allowPointSelect: true,
+				cursor: 'pointer',
+				dataLabels: {
+					enabled: false
+				},
+				showInLegend: true
+			}
+		},credits: {
+            enabled: false
+		},
+		series: [{
+			name: 'Critical',
+			colorByPoint: true,
+			data: [{
+				name: '>240',
+				y: parseFloat('@ViewData["RectifyTime_Normal1"]'),
+				color: '#d43f3a',
+				sliced: true,
+				selected: true
+			}, {
+				name: '<=240 (mins)',
+					y: parseFloat('@ViewData["RectifyTime_Normal2"]'),
+			}]
+		}]
+	});
+
+</script>
+

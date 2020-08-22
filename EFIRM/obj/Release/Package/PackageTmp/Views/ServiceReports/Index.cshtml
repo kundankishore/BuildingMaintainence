@@ -1,0 +1,153 @@
+﻿@model EFIRM.Models.ServiceReportsViewModels
+@{
+	ViewBag.Title = "Service Reports";
+	Layout = "~/Views/Shared/_DashBoardLayout.cshtml";
+}
+
+<h4>Service Reports</h4>
+<hr />
+<div class="row mb-5">
+	<div class="col-md-12">
+		<div class="table-responsive table-striped">
+			<table class="table table-hover align-middle">
+				<thead class="thead-light">
+					<tr>
+						<th>
+							@Html.Raw("Work Order Number")
+						</th>
+						<th>
+							@Html.Raw("Date and Time")
+						</th>
+						<th>
+							@Html.Raw("Request Description")
+						</th>
+						<th>
+							@Html.Raw("User Name")
+						</th>
+						<th>
+							@Html.Raw("User Number")
+						</th>
+						<th>
+							@Html.Raw("Facility")
+						</th>
+						<th>
+							@Html.Raw("Building")
+						</th>
+						<th>
+							@Html.Raw("Floor")
+						</th>
+						<th>
+							@Html.Raw("Area")
+						</th>
+						<th>
+							@Html.Raw("Room")
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in Model.Items)
+					{
+						<tr>
+							<td>
+
+								@{ string color = "black";}
+								@if (item.Status.Equals("Rectified", StringComparison.OrdinalIgnoreCase))
+								{
+									color = "lawngreen";
+								}
+								@if (item.Status.Equals("Open", StringComparison.OrdinalIgnoreCase))
+								{
+									color = "red";
+								}
+								@if (item.Status.Equals("Acknowledged", StringComparison.OrdinalIgnoreCase))
+								{
+									color = "#e9d700";
+								}
+								@if (item.Status.Equals("Cancelled", StringComparison.OrdinalIgnoreCase))
+								{
+									color = "blue";
+								}
+								@if (item.Status.Equals("Completed", StringComparison.OrdinalIgnoreCase))
+								{
+									color = "black";
+								}
+
+								<a style="font-size:larger;color:@color" href="@Url.Action("Edit", "ServiceReports", new { WORefNo = item.WORefNo })">
+									@Html.DisplayFor(modelItem => item.WORefNo)
+								</a>
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.ReportDate)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.RequestorDescription)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.UserName)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.UserNumber)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Facility)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Building)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Floor)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Area)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Room)
+							</td>
+						</tr>
+					}
+
+				</tbody>
+			</table>
+			<!-- pager -->
+			<nav aria-label="...">
+				@if (Model.Pager.EndPage > 1)
+				{
+					<ul class="pagination">
+						@if (Model.Pager.CurrentPage > 1)
+						{
+							<li class="paginate_button page-item">
+								<a class="page-link" href="~/ServiceReports/Index">First</a>
+							</li>
+							<li class="paginate_button page-item">
+								<a class="page-link" href="~/ServiceReports/Index?page=@(Model.Pager.CurrentPage - 1)">Previous</a>
+							</li>
+						}
+
+						@for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+						{
+							<li class="paginate_button page-item @(page == Model.Pager.CurrentPage ? "active" : "")">
+								<a class="page-link" href="~/ServiceReports/Index?page=@page">@page</a>
+							</li>
+						}
+
+						@if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+						{
+							<li class="paginate_button page-item">
+								<a class="page-link" href="~/ServiceReports/Index?page=@(Model.Pager.CurrentPage + 1)">Next</a>
+							</li>
+							<li class="paginate_button page-item">
+								<a class="page-link" href="~/ServiceReports/Index?page=@(Model.Pager.TotalPages)">Last</a>
+							</li>
+						}
+					</ul>
+				}
+			</nav>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#SR').addClass("active");
+	});
+</script>
+

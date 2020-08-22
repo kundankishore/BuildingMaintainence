@@ -1,0 +1,51 @@
+﻿
+@{
+	ViewBag.Title = "Building Logo";
+	Layout = "~/Views/Shared/_DashBoardLayout.cshtml";
+}
+
+<h2>Building Logo</h2>
+
+<div class="row">
+	<div class="col-md-3">
+
+		<p class="text-center">
+			@if (string.IsNullOrEmpty(ViewBag.BuildingImage))
+			{
+				<img src="~/images/BuildingImage/BuildingImage.jpg" height="250" width="250">
+			}
+			else
+			{
+				<img src="~/images/BuildingImage/@ViewBag.BuildingImage" height="250" width="250">
+			}
+		</p>
+	</div>
+	<div class="col-md-4">
+		@using (Html.BeginForm("BuildingLogoUpload", "Settings", FormMethod.Post,
+					new { enctype = "multipart/form-data" }))
+		{
+			<input type="file" onchange="ValidateSize(this)" name="file" id="file" style="width: 100%;" required />
+
+			<br />
+			<br />
+			<br />
+			<input type="submit" value="Upload" class="btn btn-success" />
+			<a class="btn btn-primary" href="~/Settings/BuildingLogo">Cancel</a>
+		}
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#BL').addClass("active");
+		$('label').css("font-weight", "Bold");
+	});
+	function ValidateSize(file) {
+		var FileSize = file.files[0].size / 1024 / 1024; // in MB
+		if (FileSize > 2) {
+			alert('File size exceeds 2 MB');
+			// $(file).val(''); //for clearing with Jquery
+		} else {
+
+		}
+	}
+</script>

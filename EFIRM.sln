@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFIRM", "EFIRM\EFIRM.csproj", "{AB9163C9-D9C0-4D1D-95CE-F978CA03DD4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB9163C9-D9C0-4D1D-95CE-F978CA03DD4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB9163C9-D9C0-4D1D-95CE-F978CA03DD4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB9163C9-D9C0-4D1D-95CE-F978CA03DD4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB9163C9-D9C0-4D1D-95CE-F978CA03DD4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {509DC255-2338-477D-B876-98B990CCCF28}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/team0405
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = EFIRM\\EFIRM.csproj
+		SccProjectName1 = EFIRM
+		SccLocalPath1 = EFIRM
+	EndGlobalSection
+EndGlobal

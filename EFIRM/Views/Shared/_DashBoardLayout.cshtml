@@ -1,0 +1,265 @@
+﻿@using EFIRM.DAL;
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@ViewBag.Title EFIRM</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="~/assets/img/favicon.png">
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&amp;subset=latin-ext" rel="stylesheet">
+
+	<link rel="stylesheet" href="~/assets/fonts/batch-icons/css/batch-icons.css">
+
+	<link rel="stylesheet" href="~/assets/css/bootstrap/bootstrap.min.css">
+
+	<link rel="stylesheet" href="~/assets/css/bootstrap/mdb.min.css">
+
+	<link rel="stylesheet" href="~/assets/plugins/custom-scrollbar/jquery.mCustomScrollbar.min.css">
+
+	<link rel="stylesheet" href="~/assets/css/hamburgers/hamburgers.css">
+
+	<link rel="stylesheet" href="~/assets/fonts/font-awesome/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="~/assets/fonts/font-awesome/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="~/assets/plugins/jvmaps/jqvmap.min.css">
+
+	<link rel="stylesheet" href="~/assets/css/quillpro/quillpro.css">
+
+	<script type="text/javascript" src="~/assets/js/jquery/jquery-3.1.1.min.js"></script>
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<nav id="sidebar" class="px-0 bg-dark bg-gradient sidebar">
+				<ul class="nav nav-pills flex-column">
+					<li class="logo-nav-item">
+						@{
+							var db = new EFIRMDBEntities();
+							var LogoImage = db.LogoImages.FirstOrDefault()?.LogoImages;
+
+							<a class="navbar-brand" href="#">
+								@if (string.IsNullOrEmpty(LogoImage))
+								{
+									<img src="~/images/LogoImage/m4.png" height="50" width="50">
+								}
+								else
+								{
+									<img src="~/images/LogoImage/@LogoImage" height="50" width="50">
+								}
+								<span>Home</span>
+							</a>
+						}
+					</li>
+					@if (Convert.ToString(Session["UserRole"]).ToLower().Contains("admin") || !Convert.ToString(Session["UserRole"]).ToLower().Contains("technician"))
+					{
+						<li>
+							<h6 class="nav-header">Service Request</h6>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="~/ServiceRequests/Create" id="CSR">
+								<i class="batch-icon batch-icon-add"></i>
+								Create Service Request
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="~/ServiceRequests/Index" id="VSR">
+								<i class="batch-icon batch-icon-eye-alt"></i>
+								View Service Request
+							</a>
+						</li>
+					}
+				</ul>
+
+				@if (Convert.ToString(Session["UserRole"]).ToLower().Contains("admin") || Convert.ToString(Session["UserRole"]).ToLower().Contains("technician"))
+				{
+					<ul class="nav nav-pills flex-column">
+						<li>
+							<h6 class="nav-header">Service Report</h6>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="~/ServiceReports/Index" id="SR">
+								<i class="batch-icon batch-icon-eye-alt"></i>
+								Service Report
+							</a>
+						</li>
+					</ul>
+				}
+
+				@if (Convert.ToString(Session["UserRole"]).ToLower().Contains("admin"))
+				{
+					<ul class="nav nav-pills flex-column">
+						<li>
+							<h6 class="nav-header">Dashboard</h6>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="~/Dashboard/Overview"  id="Overview">
+								<i class="batch-icon batch-icon-browser-alt"></i>
+								Overview Dashboard
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="~/Dashboard/KPI" id="KPI">
+								<i class="batch-icon batch-icon-browser-alt"></i>
+								KPI Dashboard
+							</a>
+						</li>
+					</ul>
+					@*<ul class="nav nav-pills flex-column">
+						<li>
+							<h6 class="nav-header">Reports</h6>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<i class="batch-icon batch-icon-calendar"></i>
+								KPI Report
+							</a>
+						</li>
+					</ul>*@
+					<ul class="nav nav-pills flex-column">
+						<li>
+							<h6 class="nav-header">Setting</h6>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="~/Settings/UserProfile" id="Profile">
+								<i class="batch-icon batch-icon-users"></i>
+								Profile
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="~/Settings/ChangePassword" id="CP">
+								<i class="batch-icon batch-icon-locked"></i>
+								Update Password
+							</a>
+						</li>
+						@*<li class="nav-item">
+							<a class="nav-link" href="#">
+								<i class="batch-icon batch-icon-calendar"></i>
+								Active/Dormat
+							</a>
+						</li>*@
+						<li class="nav-item">
+							<a class="nav-link" href="~/Settings/CompanyLogo" id="CL">
+								<i class="batch-icon batch-icon-image"></i>
+								Company Logo
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="~/Settings/BuildingLogo" id="BL">
+								<i class="batch-icon batch-icon-image"></i>
+								Building Logo
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="~/Settings/Features" id="FT">
+								<i class="batch-icon batch-icon-layout-content-left"></i>
+								Features
+							</a>
+						</li>
+					</ul>
+				}
+			</nav>
+			<div class="right-column">
+				<nav class="navbar navbar-expand-lg navbar-light bg-white">
+					<button class="hamburger hamburger--slider" type="button" data-target=".sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle Sidebar">
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+						</span>
+					</button>
+					<!-- Added Mobile-Only Menu -->
+					<ul class="navbar-nav ml-auto mobile-only-control d-block d-sm-block d-md-block d-lg-none">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" id="navbar-dropdown-navbar-profile" data-toggle="dropdown" data-flip="false" aria-haspopup="true" aria-expanded="false">
+								@*<div class="profile-name">
+										@System.Web.HttpContext.Current.User.Identity.Name
+									</div>*@
+								<div class="profile-picture bg-gradient bg-primary has-message float-right">
+									<img src="~/assets/img/user.png" width="44" height="44">
+								</div>
+							</a>
+							<ul class="dropdown-menu dropdown-menu-fullscreen" aria-labelledby="navbar-notification-search-mobile">
+								@*<li><a class="dropdown-item" href="~/Settings/UserProfile">Profile</a></li>*@
+								<li><a class="dropdown-item" href="~/Account/Logout">Logout</a></li>
+							</ul>
+						</li>
+					</ul>
+					<!--  DEPRECATED CODE:
+						<div class="navbar-collapse" id="navbarSupportedContent">
+					-->
+					<!-- USE THIS CODE Instead of the Commented Code Above -->
+					<!-- .collapse added to the element -->
+					<div class="collapse navbar-collapse" id="navbar-header-content">
+						<ul class="navbar-nav navbar-language-translation mr-auto">
+							<li class="nav-item dropdown">
+								@*<a class="nav-link dropdown-toggle" id="navbar-dropdown-menu-link" data-toggle="dropdown" data-flip="false" aria-haspopup="true" aria-expanded="false">
+										<i class="batch-icon batch-icon-book-alt-"></i>
+										English
+									</a>*@
+								@*<ul class="dropdown-menu" aria-labelledby="navbar-dropdown-menu-link">
+										<li><a class="dropdown-item" href="#">Français</a></li>
+										<li><a class="dropdown-item" href="#">Deutsche</a></li>
+										<li><a class="dropdown-item" href="#">Español</a></li>
+									</ul>*@
+							</li>
+						</ul>
+
+						<ul class="navbar-nav ml-5 navbar-profile float-right">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" id="navbar-dropdown-navbar-profile" data-toggle="dropdown" data-flip="false" aria-haspopup="true" aria-expanded="false">
+									<div class="profile-name">
+										@System.Web.HttpContext.Current.User.Identity.Name
+									</div>
+									<div class="profile-picture bg-gradient bg-primary has-message float-right">
+										<img src="~/assets/img/user.png" width="44" height="44">
+									</div>
+								</a>
+								<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown-navbar-profile">
+									@*<li><a class="dropdown-item" href="~/Settings/UserProfile">Profile</a></li>*@
+									<li><a class="dropdown-item" href="~/Account/Logout">Logout</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</nav>
+				<div class="card">
+					<div class="card-body">
+						@RenderBody()
+
+
+						<footer>
+							&copy; @System.DateTime.Now.Year Powered by - <a href="#" target="_blank" style="font-weight:300;color:#ffffff;background:#1d1d1d;padding:0 3px;"></a>
+						</footer>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="~/assets/js/bootstrap/popper.min.js"></script>
+
+	<script type="text/javascript" src="~/assets/js/bootstrap/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="~/assets/js/bootstrap/mdb.min.js"></script>
+
+	<script type="text/javascript" src="~/assets/plugins/velocity/velocity.min.js"></script>
+
+	<script type="text/javascript" src="~/assets/plugins/velocity/velocity.ui.min.js"></script>
+
+	<script type="text/javascript" src="~/assets/plugins/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<script type="text/javascript" src="~/assets/plugins/jquery_visible/jquery.visible.min.js"></script>
+
+	<script type="text/javascript" src="~/assets/js/misc/ie10-viewport-bug-workaround.js"></script>
+
+	<script type="text/javascript" src="~/assets/js/misc/holder.min.js"></script>
+
+	<script type="text/javascript" src="~/assets/js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿@using EFIRM.Models
+@model Login
+<div class="container-fluid">
+	<div class="row">
+		<div class="right-column sisu">
+			<div class="row mx-0">
+				<div class="col-md-7 order-md-2 signin-right-column px-5 bg-dark">
+					<h1>SIGN IN TO MAINTENANCE MANAGEMENT SOFTWARE</h1>
+				</div>
+				<div class="col-md-5 order-md-1 signin-left-column bg-white px-5">
+					<p class="text-center">
+						@if (string.IsNullOrEmpty(ViewBag.LogoImage))
+						{
+							<img src="~/images/LogoImage/m4.png" height="80" width="80">
+						}
+						else
+						{
+							<img src="~/images/LogoImage/@ViewBag.LogoImage" height="80" width="80">
+						}
+					</p>
+					@if (!string.IsNullOrEmpty(ViewBag.Errors))
+					{
+						<div class="error_div" style="color:red;">
+							<p style="color:red;">@ViewBag.Errors</p>
+						</div>
+
+					}
+					<form action="/Account/Login" method="post">
+						<div class="form-group">
+							<label for="exampleInputEmail1">User Name</label>
+							<input type="text" name="UserName" class="form-control" id="exampleInputEmail1" placeholder="Enter User Name" required>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Password</label>
+							<input type="password" name="Password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" required>
+						</div>
+						<div class="form-group">
+							<label style="word-wrap:break-word">
+								@Html.CheckBoxFor(m => m.RememberMe) Keep Me Signed In
+							</label>
+						</div>
+						<br />
+						<button type="submit" class="btn btn-primary btn-gradient btn-block">
+							<i class="batch-icon batch-icon-key"></i>
+							Sign In
+						</button>
+						<hr>
+						<p class="text-center">
+							Forgot Password? <a href="/Account/ForgotPassword">click here</a>
+						</p>
+						<p class="text-center">
+							@if (string.IsNullOrEmpty(ViewBag.BuildingImage))
+							{
+								<img src="~/images/BuildingImage/BuildingImage.jpg" height="250" width="250">
+							}
+							else
+							{
+								<img src="~/images/BuildingImage/@ViewBag.BuildingImage" height="250" width="250">
+							}
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

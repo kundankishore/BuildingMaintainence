@@ -1,0 +1,597 @@
+﻿@{
+	ViewBag.Title = "OverView";
+	Layout = "~/Views/Shared/_DashBoardLayout.cshtml";
+}
+
+<script src="~/HighCharts/highcharts.js"></script>
+<script src="~/HighCharts/highcharts-3d.js"></script>
+<script src="~/HighCharts/modules/exporting.js"></script>
+<script src="~/HighCharts/modules/export-data.js"></script>
+
+
+@using (Html.BeginForm("OverView", "Dashboard", FormMethod.Post))
+{
+	<div class="form-horizontal">
+		<div class="row">
+			<div class="col-md-5">
+				<label class="m-b-none" style="font-size: 24px; font-weight: bold; color: #000">
+					Overview Dashboard
+				</label>
+			</div>
+			<div class="col-md-2">
+				<label style="font-weight: bold; color: #000;font-size:medium">From Date</label>
+				<input type="date" name="startDate" id="from_date" pattern="dd/mm/yyyy">
+			</div>
+			<div class="col-md-2">
+				<label style="font-weight: bold; color: #000;font-size:medium">To Date</label>
+				<input type="date" name="endDate" id="to_date" pattern="dd/mm/yyyy">
+			</div>
+			<div class="col-md-3" style="margin-top:20px;">
+				<input class="btn btn-primary" type="submit" value="Search" id="btnSubmit" />
+				</div>
+			</div>
+		</div>
+}
+<br />
+<main class="main-content p-5" role="main">
+
+	<br />
+	@*date selection ends*@
+
+	@*Work Order cards start*@
+	<div class="row">
+		<div class="col-md-4">
+			<div class="card card-tile card-xs bg-primary bg-gradient text-center">
+				<div class="card-body p-4">
+					<!-- Accepts .invisible: Makes the items. Use this only when you want to have an animation called on it later -->
+					<div class="tile-left">
+						<i class="batch-icon batch-icon-user-alt batch-icon-xxl"></i>
+					</div>
+					<div class="tile-right">
+						<div class="tile-number">@Html.Raw(ViewData["TOTAL_WORK_ORDERS"])</div>
+						<div class="tile-description">TOTAL WORK ORDER</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card card-tile card-xs bg-secondary bg-gradient text-center">
+				<div class="card-body p-4">
+					<div class="tile-left">
+						<i class="batch-icon batch-icon-tag-alt-2 batch-icon-xxl"></i>
+					</div>
+					<div class="tile-right">
+						<div class="tile-number">@Html.Raw(ViewData["OPEN_WORK_ORDERS"])</div>
+						<div class="tile-description">OPEN WORK ORDER</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card card-tile card-xs bg-primary bg-gradient text-center">
+				<div class="card-body p-4">
+					<div class="tile-left">
+						<i class="batch-icon batch-icon-list batch-icon-xxl"></i>
+					</div>
+					<div class="tile-right">
+						<div class="tile-number">@Html.Raw(ViewData["CLOSED_WORK_ORDERS"])</div>
+						<div class="tile-description">CLOSED WORK ORDER</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-4">
+			<div class="card card-tile card-xs bg-secondary bg-gradient text-center">
+				<div class="card-body p-4">
+					<div class="tile-left">
+						<i class="batch-icon batch-icon-star batch-icon-xxl"></i>
+					</div>
+					<div class="tile-right">
+						<div class="tile-number">@Html.Raw(ViewData["AVERAGE_RESPONSE_TIME"])</div>
+						<div class="tile-description">(WORK ORDER= @Html.Raw(ViewData["AVERAGE_RESPONSE_Count"]) )<br />AVERAGE RESPONSE TIME</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card card-tile card-xs bg-primary bg-gradient text-center">
+				<div class="card-body p-4">
+					<!-- Accepts .invisible: Makes the items. Use this only when you want to have an animation called on it later -->
+					<div class="tile-left">
+						<i class="batch-icon batch-icon-user-alt batch-icon-xxl"></i>
+					</div>
+					<div class="tile-right">
+						<div class="tile-number">@Html.Raw(ViewData["AVERAGE_RECTIFICATION_TIME"])</div>
+						<div class="tile-description">(WORK ORDER= @Html.Raw(ViewData["AVERAGE_RECTIFICATION_Count"]) )<br />AVERAGE RECTIFICATION TIME</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	@*Work Order cards ends*@
+	<br />
+
+	<div class="row">
+
+		<div id="container1" class="col-md-6"></div>
+		<div id="container2" class="col-md-6"></div>
+	</div>
+	<br />
+	<div class="row">
+		<div id="container3" class="col-md-6"></div>
+
+		<div id="container4" class="col-md-6"></div>
+
+	</div>
+	<br />
+
+	@*Row3 starts*@
+	<div class="row">
+		<div id="container5" class="col-md-6"></div>
+		<div id="container7" class="col-md-6"></div>
+
+	</div>
+	<br />
+
+
+	@*Row4 starts*@
+	<div class="row" style="display:none">
+		<div id="container6" class="col-md-6"></div>
+		
+	</div>
+	@*Row4 Ends*@
+
+</main>
+<script type="text/javascript">
+
+	$(document).ready(function () {
+		$('#Overview').addClass("active");
+	});
+    // Set up the chart
+    var chart1 = new Highcharts.Chart({
+        chart: {
+            renderTo: 'container1',
+            type: 'column',
+			zoomType: 'xy',
+			options3d: {
+				enabled: true,
+				depth: 20,
+				true3d: false,
+				angle: 40,
+			}
+        },
+		title: {
+			text: 'Work Order'
+		},
+        plotOptions: {
+            column: {
+                depth: 25
+            }
+        },
+        exporting: {
+            buttons: {
+                contextButton: {
+                    menuItems: [
+                        'printChart',
+                        'separator',
+                        'downloadPNG',
+                        'downloadJPEG',
+                        'downloadPDF',
+                        'downloadSVG',
+                        'separator',
+                        'downloadCSV',
+                        'downloadXLS'
+                    ]
+                }
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0">Count <b>{point.y:.1f}</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        credits: {
+            enabled: false
+        },
+        xAxis: {
+            categories: [
+                @Html.Raw(ViewData["workorder_categories"])
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Count'
+            }
+        },
+        series: [@Html.Raw(ViewData["workorder_series"])]
+    });
+    var chart2 = new Highcharts.Chart({
+        chart: {
+            renderTo: 'container2',
+            type: 'column',
+			zoomType: 'xy',
+			options3d: {
+				enabled: true,
+				depth: 20,
+				true3d: false,
+				angle: 40,
+			}
+        },
+		title: {
+			text: 'Total Work Order - Request Type'
+		},
+        plotOptions: {
+            column: {
+                depth: 25
+            }
+        },
+        exporting: {
+            buttons: {
+                contextButton: {
+                    menuItems: [
+                        'printChart',
+                        'separator',
+                        'downloadPNG',
+                        'downloadJPEG',
+                        'downloadPDF',
+                        'downloadSVG',
+                        'separator',
+                        'downloadCSV',
+                        'downloadXLS'
+                    ]
+                }
+            }
+        },
+        exporting: {
+            buttons: {
+                contextButton: {
+                    menuItems: [
+                        'printChart',
+                        'separator',
+                        'downloadPNG',
+                        'downloadJPEG',
+                        'downloadPDF',
+                        'downloadSVG',
+                        'separator',
+                        'downloadCSV',
+                        'downloadXLS'
+                    ]
+                }
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0">Count <b>{point.y:.1f} </b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        credits: {
+            enabled: false
+        },
+        xAxis: {
+            categories: [
+                @Html.Raw(ViewData["workorder_categories"])
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Count'
+            }
+        },
+        series: [@Html.Raw(ViewData["workorder_req_series"])]
+    });
+
+
+	var chart3 = new Highcharts.Chart({
+		chart: {
+			renderTo: 'container3',
+			type: 'column',
+			zoomType: 'xy',
+			options3d: {
+				enabled: true,
+				depth: 20,
+				true3d: false,
+				angle: 40,
+			}
+		},
+		title: { text:'Open Work Order'},
+        plotOptions: {
+            column: {
+                depth: 25
+            }
+        },
+        exporting: {
+            buttons: {
+                contextButton: {
+                    menuItems: [
+                        'printChart',
+                        'separator',
+                        'downloadPNG',
+                        'downloadJPEG',
+                        'downloadPDF',
+                        'downloadSVG',
+                        'separator',
+                        'downloadCSV',
+                        'downloadXLS'
+                    ]
+                }
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0">Count <b>{point.y:.1f} </b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        credits: {
+            enabled: false
+        },
+        xAxis: {
+            categories: [
+                @Html.Raw(ViewData["workorder_categories"])
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Count'
+            }
+        },
+        series: [@Html.Raw(ViewData["workorder_req_open_series"])]
+	});
+
+	var chart4 = Highcharts.chart('container4', {
+		chart: {
+			type: 'column'
+		},
+		title: {
+			text: 'Work Order as per Severity'
+		},
+		credits: {
+            enabled: false
+        },
+        xAxis: {
+            categories: [
+                @Html.Raw(ViewData["workorder_categories"])
+            ],
+            crosshair: true
+        },
+
+		yAxis: {
+			min: 0,
+			title: {
+				text: 'Count'
+			},
+			stackLabels: {
+				enabled: true,
+				style: {
+					fontWeight: 'bold',
+					color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+				}
+			}
+		},
+		legend: {
+			enabled: true,
+			align: 'center',
+			verticalAlign: 'bottom',
+			y: 0,
+			padding: 0,
+			itemMarginTop: 0,
+			itemMarginBottom: 0,
+			itemStyle: {
+				fontSize: '10px'
+			}
+		},
+		tooltip: {
+			headerFormat: '<b>{point.x}</b><br/>',
+			pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+		},
+		plotOptions: {
+			column: {
+				stacking: 'normal',
+				dataLabels: {
+					enabled: true,
+					color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+				}
+			}
+		},
+		series:  [@Html.Raw(ViewData["workorder_severity_series"])]
+	});
+
+	var chart5 = Highcharts.chart('container5', {
+		chart: {
+			type: 'column'
+		},
+		title: {
+			text: 'Work Order as per Group'
+		},
+		credits: {
+            enabled: false
+        },
+        xAxis: {
+            categories: [
+                @Html.Raw(ViewData["workorder_categories"])
+            ],
+            crosshair: true
+        },
+
+		yAxis: {
+			min: 0,
+			title: {
+				text: 'Count'
+			},
+			stackLabels: {
+				enabled: true,
+				style: {
+					fontWeight: 'bold',
+					color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+				}
+			}
+		},
+		legend: {
+			enabled: true,
+			align: 'center',
+			verticalAlign: 'bottom',
+			y: 0,
+			padding: 0,
+			itemMarginTop: 0,
+			itemMarginBottom: 0,
+			itemStyle: {
+				fontSize: '10px'
+			}
+		},
+		tooltip: {
+			headerFormat: '<b>{point.x}</b><br/>',
+			pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+		},
+		plotOptions: {
+			column: {
+				stacking: 'normal',
+				dataLabels: {
+					enabled: true,
+					color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+				}
+			}
+		},
+		series: [@Html.Raw(ViewData["workorder_AssetGroup_series"])]
+	});
+
+
+
+	var chart6 = Highcharts.chart('container6', {
+		chart: {
+			type: 'column'
+		},
+		title: {
+			text: 'Top 5 Work Order As Per Asset Type'
+		},
+		credits: {
+            enabled: false
+        },
+        xAxis: {
+            categories: [
+                @Html.Raw(ViewData["workorder_categories"])
+            ],
+            crosshair: true
+        },
+
+		yAxis: {
+			min: 0,
+			title: {
+				text: 'Count'
+			},
+			stackLabels: {
+				enabled: true,
+				style: {
+					fontWeight: 'bold',
+					color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+				}
+			}
+		},
+		legend: {
+			enabled: true,
+			align: 'center',
+			verticalAlign: 'bottom',
+			y: 0,
+			padding: 0,
+			itemMarginTop: 0,
+			itemMarginBottom: 0,
+			itemStyle: {
+				fontSize: '10px'
+			}
+		},
+		tooltip: {
+			headerFormat: '<b>{point.x}</b><br/>',
+			pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+		},
+		plotOptions: {
+			column: {
+				stacking: 'normal',
+				dataLabels: {
+					enabled: true,
+					color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+				}
+			}
+		},
+		series:[@Html.Raw(ViewData["workorder_AssetType_series"])]
+	});
+
+	var chart7 = new Highcharts.Chart({
+		chart: {
+			renderTo: 'container7',
+			type: 'column',
+			zoomType: 'xy',
+			options3d: {
+				enabled: true,
+				alpha: 6,
+				beta: 5,
+				depth: 100,
+				viewDistance: 25
+			}
+		},
+		title: { text:'Total and Open work order as per buildings'},
+        plotOptions: {
+            column: {
+                depth: 25
+            }
+        },
+        exporting: {
+            buttons: {
+                contextButton: {
+                    menuItems: [
+                        'printChart',
+                        'separator',
+                        'downloadPNG',
+                        'downloadJPEG',
+                        'downloadPDF',
+                        'downloadSVG',
+                        'separator',
+                        'downloadCSV',
+                        'downloadXLS'
+                    ]
+                }
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0">Count <b>{point.y:.1f} </b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        credits: {
+            enabled: false
+        },
+        xAxis: {
+            categories: [
+                @Html.Raw(ViewData["workorder_Buildings_categories"])
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Count'
+            }
+        },
+        series: [@Html.Raw(ViewData["workorder_Total_Open_Building_series"])]
+    });
+
+</script>
+
